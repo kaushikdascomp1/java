@@ -1,3 +1,7 @@
+package Java.src;
+
+import Java.src.Printer;
+
 public class OddEven implements Runnable{
     private Printer printer;
     private int max;
