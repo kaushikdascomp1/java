@@ -1,3 +1,5 @@
+package src.com.interview.Searching;
+
 public class CountOccurancesofX {
 
     //to count the occurances of x in O(log n) using binary search

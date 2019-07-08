@@ -1,3 +1,5 @@
+package src.com.interview.arrays;
+
 public class MaxmumSubArrayOfSizeK {
 
     /**

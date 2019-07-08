@@ -1,3 +1,5 @@
+package src.com.interview.arrays;
+
 import java.util.Arrays;
 
 public class MaximumSongsPlayed {

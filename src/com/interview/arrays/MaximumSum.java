@@ -1,3 +1,5 @@
+package src.com.interview.arrays;
+
 import java.util.ArrayList;
 
 public class MaximumSum {

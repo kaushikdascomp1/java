@@ -1,3 +1,5 @@
+package src.com.interview.arrays;
+
 public class CreatingDynamicArray {
 
     public static void main(String args[]){

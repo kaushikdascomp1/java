@@ -1,4 +1,4 @@
-package src;
+package src.com.interview.Strings;
 
 import java.util.HashMap;
 import java.util.LinkedHashMap;

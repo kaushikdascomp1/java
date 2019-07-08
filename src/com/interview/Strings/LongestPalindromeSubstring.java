@@ -1,3 +1,5 @@
+package src.com.interview.Strings;
+
 public class LongestPalindromeSubstring {
 
 

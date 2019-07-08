@@ -1,7 +1,5 @@
 package lru.lru1;
 
-import lru.Node;
-
 import java.util.HashMap;
 
 public class LRU {

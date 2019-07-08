@@ -1,4 +1,4 @@
-package LinkedList;
+package src.com.interview.linkedlist;
 
 public class LinkedList {
 
