@@ -1,4 +1,5 @@
-package Java8;
+package Java.src.Java8;
+
 @FunctionalInterface
 public interface B {
 

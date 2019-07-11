@@ -4,7 +4,8 @@ public class SecondSmallestInArray {
 
     public static void main(String[] args) {
         int arr[] = {2,4,5,9};
-        System.out.println(findSecondSmallest(arr));
+        int arr1[] = {1,2,1};
+        System.out.println(findSecondSmallest(arr1));
     }
 
     public static int findSecondSmallest(int arr[]){

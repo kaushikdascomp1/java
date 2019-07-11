@@ -8,7 +8,7 @@ import java.util.Map;
 public class BestAverageGrade {
 
     public static void main(String[] args) {
-        String[][] tc1 = {{"Bobby","87"},
+        String tc1[][] = {{"Bobby","87"},
                           {"Charles","100"},
                         {"Eric","64"},
                         {"Charles","22"}

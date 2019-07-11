@@ -1,5 +1,7 @@
 package Java8;
 
+import Java.src.Java8.B;
+
 import javax.print.DocFlavor;
 import java.util.Arrays;
 import java.util.List;
