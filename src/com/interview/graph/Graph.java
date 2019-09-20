@@ -19,7 +19,7 @@ public class Graph {
     public void addEdge(Graph graph, int src, int dest){
         graph.adjArr[src].add(dest);
 
-        //Since graph is adirected add destination to src also
+        //Since graph is adirected add destination to src is also required
         graph.adjArr[dest].add(src);
     }
 

@@ -12,8 +12,7 @@ public class MaxmumSubArrayOfSizeK {
     public static void main(String args[]){
         int arr[] = new int[]{1, 2, 3, 1, 4, 5, 2, 3, 6};
         subArray(arr,3);
-
-        }
+    }
 
         public static void subArray(int arr[], int k){
             for(int i=0;i<=arr.length-k;i++){
