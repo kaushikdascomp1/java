@@ -11,7 +11,7 @@ public class PanagramDetector {
     }
 
     public static boolean panagramCheck(String str){
-        int index=-1;
+        int index =-1;
         for(int i=0;i<str.length();i++){
             if('A'<= str.charAt(i) && str.charAt(i) <= 'Z'){
                 index=str.charAt(i)-'A';

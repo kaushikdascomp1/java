@@ -1,9 +1,6 @@
 package src.GSCoderPad;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class BestAverageGrade {
 
@@ -17,16 +14,28 @@ public class BestAverageGrade {
     }
 
     public static double calculateAvg(List<String> list){
-        double sum = 0;
+        Double sum = list.stream().mapToDouble(i->Double.valueOf(i)).sum();
+       /* double sum = 0;
         for(String str:list){
             sum += Double.valueOf(str);
-        }
+        }*/
         return Math.floor(sum/list.size());
     }
 
     public static int bestAvgGrade(String[][] scores){
         Map<String, List<String>> mapList = new HashMap<String, List<String>>();
-        for(int i=0;i<scores.length;i++){
+        Arrays.stream(scores).forEach((item) -> {
+            List<String> scoreList = mapList.get(item[0]);
+
+           if(null == scoreList || scoreList.isEmpty()){
+               scoreList = new ArrayList<String>();
+           }
+            scoreList.add(item[1]);
+            mapList.put(item[0],scoreList);
+        });
+       // double maxAvg = 0;
+
+       /* for(int i=0;i<scores.length;i++){
             String arr[] = scores[i];
            List<String> scoreList = mapList.get(arr[0]);
            if(null == scoreList || scoreList.isEmpty()){
@@ -34,7 +43,7 @@ public class BestAverageGrade {
            }
            scoreList.add(arr[1]);
            mapList.put(arr[0],scoreList);
-        }
+        }*/
         double maxAvg = 0;
         for(List<String> val:mapList.values()){
             double avg = calculateAvg(val);

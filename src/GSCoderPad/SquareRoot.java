@@ -11,7 +11,7 @@ public class SquareRoot {
         double currEstimate = x/2;
 
         while(x>=0.0){
-            sqRoot=currEstimate-(currEstimate*currEstimate - x)/(2*currEstimate);
+            sqRoot = currEstimate-(currEstimate*currEstimate - x)/(2*currEstimate);
             double diff = Math.abs(currEstimate-sqRoot);
             if(diff< 0.001){
                 return sqRoot;

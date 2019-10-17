@@ -1,7 +1,9 @@
 package src.GSCoderPad;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 public class FindTopIpAddress {
 
@@ -20,14 +22,16 @@ public class FindTopIpAddress {
 
         Map<String, Integer> mapList = new HashMap<String, Integer>();
 
-        for(String line : lines){
-            String ipadd = line.split(" ")[0];
-            if(mapList.containsKey(ipadd)){
-                mapList.put(ipadd,mapList.get(ipadd)+1);
-            }else{
-                mapList.put(ipadd,1);
-            }
-        }
+                Arrays.stream(lines).forEach(line ->{
+                    String ipadd = line.split(" ")[0];
+                    if(mapList.containsKey(ipadd)){
+                        mapList.put(ipadd,mapList.get(ipadd)+1);
+                    }else{
+                        mapList.put(ipadd,1);
+                    }
+                });
+
+
 
         int max = 0;
         String str = "";
