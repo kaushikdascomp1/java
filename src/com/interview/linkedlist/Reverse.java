@@ -7,9 +7,10 @@ public class Reverse {
         node.next = new LinkedList(13);
         node.next.next = new LinkedList(14);
         node.next.next.next = new LinkedList(15);
-        printLL(node);
-        LinkedList head = reverse(node);
-        printLL(head);
+       // printLL(node);
+       // LinkedList head = reverse(node);
+        LinkedList head2 = reverseK(node,2);
+        printLL(head2);
     }
 
 

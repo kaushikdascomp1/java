@@ -5,7 +5,9 @@ import Java.src.Java8.Models.Apple;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.IntPredicate;
 import java.util.function.Predicate;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class AppleMainExample {
@@ -46,6 +48,21 @@ public class AppleMainExample {
         Integer[] intArray = parallelStream.filter(x->x%2 == 0).toArray(Integer[]::new);
         System.out.println(intArray);
 
+        //Use of Intstream predicate to find prime numbers
+
+
+    }
+
+    public boolean isPrime(int number){
+        return IntStream.range(2,number).noneMatch(
+                index->number % index == 0
+        );
+    }
+
+    public boolean isPrimePredicate(int number){
+        IntPredicate intPredicate = index -> number % index == 0;
+
+        return IntStream.range(2,number).noneMatch(intPredicate);
 
     }
 }

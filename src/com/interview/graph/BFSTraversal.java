@@ -18,7 +18,7 @@ public class BFSTraversal {
         graphDirected.addEdge(2,3);
         graphDirected.addEdge(3,3);
 
-        graphDirected.bfs(2);
+       // graphDirected.bfs(2);
         graphDirected.dfs(2);
     }
 

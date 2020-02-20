@@ -33,17 +33,7 @@ public class BestAverageGrade {
             scoreList.add(item[1]);
             mapList.put(item[0],scoreList);
         });
-       // double maxAvg = 0;
 
-       /* for(int i=0;i<scores.length;i++){
-            String arr[] = scores[i];
-           List<String> scoreList = mapList.get(arr[0]);
-           if(null == scoreList || scoreList.isEmpty()){
-               scoreList = new ArrayList<String>();
-           }
-           scoreList.add(arr[1]);
-           mapList.put(arr[0],scoreList);
-        }*/
         double maxAvg = 0;
         for(List<String> val:mapList.values()){
             double avg = calculateAvg(val);
