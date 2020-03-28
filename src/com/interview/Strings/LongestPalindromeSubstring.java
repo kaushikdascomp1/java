@@ -15,7 +15,7 @@ public class LongestPalindromeSubstring {
         // for strings of length 1 each substring at (0,0), (1,1), (2,2)...(n,n) will be 1
         int maxlength = 1;
         for(int i=0;i<n;i++)
-            table[i][i] =true;
+            table[i][i] = true;
 
        int start = 0;
         for(int i=0;i<n-1;i++){

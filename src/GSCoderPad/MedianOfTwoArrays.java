@@ -18,10 +18,10 @@ public class MedianOfTwoArrays {
             System.out.println(item);
         });
         int n3 = arr3.length;
-        if(n3%2 == 0){
-            System.out.println("Median of Even is: "+ arr3[n3/2]);
+        if(n3%2 != 0){
+            System.out.println("Median of Odd is: "+ arr3[n3/2]);
         }else {
-            System.out.println("Median of Odd is: "+ arr3[(n3-1)/2]);
+            System.out.println("Median of Even is: "+ (arr3[(n3-1)/2]+arr3[n3/2])/2);
         }
     }
 

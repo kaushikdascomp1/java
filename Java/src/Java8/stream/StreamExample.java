@@ -68,7 +68,7 @@ public class StreamExample {
 
         //Numeric Ranges using range and rangeClosed
         IntStream evenNumbers = IntStream.rangeClosed(1,100).filter(n->n%2==0);
-        System.out.println("Total 50 numbers is returned:  " +evenNumbers.count()); // Using this as terminal operation
+        System.out.println("Total 50 numbers is returned:  " + evenNumbers.count()); // Using this as terminal operation
 
         IntStream evenNumbers1 = IntStream.range(1,100).filter(n->n%2==0);
         System.out.println("Total 49 numbers returned as both ends are exclusive: "+ evenNumbers1.count());
