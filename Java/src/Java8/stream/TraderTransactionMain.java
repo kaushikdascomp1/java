@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static java.util.Comparator.comparing;
+import static java.util.Comparator.comparingInt;
 import static java.util.stream.Collectors.joining;
 
 public class TraderTransactionMain {
@@ -60,7 +61,9 @@ public class TraderTransactionMain {
 
         //6.
         //Print all transactions’ values from the traders living in Cambridge.
-        transactions.stream().filter(transaction -> transaction.getTrader().getCity().equals("Cambridge")).map(transaction -> transaction.getValue()).forEach(System.out::println);
+        transactions.stream().filter(transaction -> transaction.getTrader().getCity().equals("Cambridge")).forEach(e->{
+            e.getValue();
+        });
 
         //7.
         //What’s the highest value of all the transactions?

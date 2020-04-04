@@ -1,4 +1,4 @@
-package src.com.interview.Strings;
+package src.com.interview.Trie;
 
 public class AutoComplete {
 

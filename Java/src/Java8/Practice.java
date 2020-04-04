@@ -48,5 +48,18 @@ public class Practice {
         //You can provide the implementation of FI using lambda expressions
         B inter = ()-> System.out.println("Hello");
         inter.m1();
+
+
+            String[] names1 = new String[] {"Ava", "Emma", "Olivia"};
+            String[] names2 = new String[] {"Olivia", "Sophia", "Emma"};
+
+
+            System.out.println(String.join(", ", Practice.uniqueNames(names1, names2))); // should print Ava, Emma, Olivia, Sophia
+    }
+
+    public static String[] uniqueNames(String[] names1, String[] names2) {
+        String[] listNames = Stream.concat(Arrays.stream(names1),Arrays.stream(names2)).distinct().toArray(String[]::new);
+        //throw new UnsupportedOperationException("Waiting to be implemented.");
+        return listNames;
     }
 }
