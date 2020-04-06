@@ -22,6 +22,8 @@ public class DemoExecutor {
             }catch (InterruptedException ex){
                 ex.printStackTrace();
             }
+            //To execute the task again or using another executor service
+            executor.execute(r);
             System.out.println("Adding another::  "+((DemoTask) r).getName());
         });
         //Starting all core threads initially
