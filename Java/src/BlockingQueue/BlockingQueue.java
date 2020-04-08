@@ -1,4 +1,4 @@
-package BlockingQueue;
+package Java.src.BlockingQueue;
 
 import java.util.LinkedList;
 
