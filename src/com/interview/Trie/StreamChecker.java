@@ -57,17 +57,17 @@ public class StreamChecker {
 
     public boolean query(char letter){
         stream.append(letter);
-        Trie p = null;
+        Trie curr = null;
         Trie[] st = t;
 
         for(int i = stream.length()-1;i>=0;i--){
             char c = stream.charAt(i);
             int val = c-'a';
-            p = st[val];
-            if(p!=null){
-                if(p.wordEnd)
+            curr = st[val];
+            if(curr!=null){
+                if(curr.wordEnd)
                     return true;
-                st=p.next;
+                st=curr.next;
             }else
                 return false;
         }

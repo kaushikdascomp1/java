@@ -1,6 +1,13 @@
 package src.com.interview.arrays;
 
-public class CreatingDynamicArray {
+public class RotateArray {
+
+    /**
+     * To rotate an array leftwise or rightwise
+     * https://www.geeksforgeeks.org/array-rotation/
+     * Time Complexity O(n*d) where d is the number of places to shift
+     * @param args
+     */
 
     public static void main(String args[]){
         int arr[] = new int[]{1,2,3,4,5};
@@ -34,7 +41,7 @@ public class CreatingDynamicArray {
         int temp = arr[0];
         for(int i=0;i<n;i++){
             arr[i+1] = arr[i];
-
+            arr[i]=temp;
         }
     }
 
