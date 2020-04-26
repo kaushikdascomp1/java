@@ -1,4 +1,4 @@
-package src.com.interview.arrays;
+package src.com.interview.arrays.overlappingsubproblems;
 
 import java.util.Arrays;
 

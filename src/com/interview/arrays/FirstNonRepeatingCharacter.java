@@ -40,6 +40,7 @@ public class FirstNonRepeatingCharacter {
             } else {
                 map.put(inStr.charAt(i), 1);
             }
+            // or map.put(inStr.charAt(i),map.getOrDefault(inStr.charAt(i),0)+1);
         }
 
         for (int i = 0; i < inStr.length(); i++) {

@@ -31,6 +31,7 @@ public class LongestConsequtiveSubsequence {
 
         for(int i=0;i<arr.length;i++){
             if(set.contains(arr[i]-1)){
+                //If the value is already minimum or the value
                 startVal = Math.min(arr[i]-1,startVal);
             }
         }

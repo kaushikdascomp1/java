@@ -8,6 +8,15 @@ public class LongestRepeatingSubstring {
         System.out.println(longestRepeating("geeksforgeeks"));
     }
 
+    public static String longestRepeatingRecursive(String str){
+        for (int i = 1; i <= str.length(); i++) {
+            for (int j = i + 1; j <= str.length(); j++) {
+
+            }
+        }
+        return "";
+    }
+    //Using DP Bottom Up- Tabulation approach
     public static String longestRepeating(String str) {
         int n = str.length();
         int LcsR[][] = new int[n + 1][n + 1];

@@ -14,6 +14,9 @@ public class MaximumSubArraySum {
         maxSum(a);
         maximumSumKadane(arr);
         maximumSumKadane(a);
+        //o/p
+        //Maximum Subarray Sum, Kadane: 9
+        //Maximum Subarray Sum, Kadane: 7
     }
 
     public static void maxSum(int arr[]){
@@ -38,9 +41,7 @@ public class MaximumSubArraySum {
         }
 
         System.out.println("Maximum Subarray Sum, Kadane: "+ max_so_far);
-        //o/p
-        //Maximum Subarray Sum, Kadane: 9
-        //Maximum Subarray Sum, Kadane: 7
+
     }
 
 }
