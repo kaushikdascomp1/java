@@ -31,11 +31,14 @@ class ElevatorDesignPatternTest {
 
 	@Test
 	public void testRequestingOneElevator(){
+		//given
 		elevatorControlSystem.pickUp(TENTH_FLOOR);
+		//when
 		for(int idx=0;idx<TENTH_FLOOR;idx++){
 			elevatorControlSystem.step();
 		}
 		elevators = elevatorControlSystem.getElevators();
+		//then
 		assertEquals(TENTH_FLOOR, elevators.get(ELEVATOR_ID_ZERO).currentFloor());
 	}
 	@Test
