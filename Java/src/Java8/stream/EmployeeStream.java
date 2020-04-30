@@ -35,7 +35,35 @@ public class EmployeeStream {
         Map<String, Integer> totalSalaryByEachDept = employeeList.stream().collect(groupingBy(Employee::getDepartment, summingInt(Employee::getSal)));
         System.out.println(totalSalaryByEachDept);
 
+        //Map sorting by value
+        Map<String, Employee> employeeMap = new HashMap<>();
+        employeeMap.put("F",emp1);
+        employeeMap.put("B",emp2);
+        employeeMap.put("C",emp3);
+        employeeMap.put("D",emp4);
+        employeeMap.put("E",emp5);
+        employeeMap.put("A",emp6);
+        employeeMap.put("G",emp7);
 
+        LinkedHashMap<String, Employee> sortedByValue = employeeMap.entrySet().stream().sorted(Map.Entry.comparingByValue(Comparator.comparing(Employee::getSal).reversed().thenComparing(Employee::getDepartment))).collect(toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
+        sortedByValue.entrySet().stream().forEach(System.out::println);
+
+        System.out.println("-------------------------------------------------------");
+        LinkedHashMap<String, Employee> collectByKey = employeeMap.entrySet().stream().sorted(Map.Entry.comparingByKey()).collect(toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
+        collectByKey.entrySet().stream().forEach(System.out::println);
+
+        Map<Employee, String> employeeKeyMap = new HashMap<>();
+
+        employeeKeyMap.put(emp1,"F");
+        employeeKeyMap.put(emp2,"B");
+        employeeKeyMap.put(emp3,"C");
+        employeeKeyMap.put(emp4,"D");
+        employeeKeyMap.put(emp5,"E");
+        employeeKeyMap.put(emp6,"A");
+        employeeKeyMap.put(emp7,"G");
+
+        LinkedHashMap<Employee, String> sortedMapEmployeeKey = employeeKeyMap.entrySet().stream().sorted(Map.Entry.comparingByKey(Comparator.comparing(Employee::getSal).reversed().thenComparing(Employee::getDepartment))).collect(toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
+        sortedMapEmployeeKey.entrySet().stream().forEach(System.out::println);
 
     }
 }

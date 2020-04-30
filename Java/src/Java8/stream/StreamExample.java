@@ -27,6 +27,7 @@ public class StreamExample {
         Map<String,Long> collect = arrList.stream().collect(groupingBy(Function.identity(),counting()));
         System.out.println(collect);
 
+
         //If we want it in Integer form
         Map<String,Integer> collectIntegers = arrList.stream().collect(groupingBy(Function.identity(),summingInt(e->2)));
         System.out.println(collectIntegers);
@@ -79,6 +80,7 @@ public class StreamExample {
                         {a,b,(int)Math.sqrt(a*a+b*b)}));
        pytha.limit(5).forEach(a-> System.out.println(a[0] + " "+ a[1]+ " "+ a[2]));
 
+       arrList.stream().collect(groupingBy(Function.identity(),summingInt(e->1)));
 
     }
 
