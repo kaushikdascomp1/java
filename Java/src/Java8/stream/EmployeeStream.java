@@ -1,6 +1,7 @@
 package Java.src.Java8.stream;
 
 import java.util.*;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -47,6 +48,10 @@ public class EmployeeStream {
 
         LinkedHashMap<String, Employee> sortedByValue = employeeMap.entrySet().stream().sorted(Map.Entry.comparingByValue(Comparator.comparing(Employee::getSal).reversed().thenComparing(Employee::getDepartment))).collect(toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
         sortedByValue.entrySet().stream().forEach(System.out::println);
+        Comparator<Employee> sortingBySal = (e1,e2)->e2.getSal()-e1.getSal();
+        Comparator<Employee> sortingByDept = (e1,e2)->e2.getDepartment().compareTo(e1.getDepartment());
+        Comparator<Employee> sortingBySalDept = sortingBySal.thenComparing(sortingByDept);
+        employeeMap.entrySet().stream().map(e1 -> e1.getValue()).sorted(sortingBySalDept).collect(toList());
 
         System.out.println("-------------------------------------------------------");
         LinkedHashMap<String, Employee> collectByKey = employeeMap.entrySet().stream().sorted(Map.Entry.comparingByKey()).collect(toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
@@ -65,5 +70,65 @@ public class EmployeeStream {
         LinkedHashMap<Employee, String> sortedMapEmployeeKey = employeeKeyMap.entrySet().stream().sorted(Map.Entry.comparingByKey(Comparator.comparing(Employee::getSal).reversed().thenComparing(Employee::getDepartment))).collect(toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
         sortedMapEmployeeKey.entrySet().stream().forEach(System.out::println);
 
+        questionsFromShivam();
+
     }
+
+    public static void questionsFromShivam(){
+        List<Employee> list = new ArrayList<Employee>();
+        list.add(new Employee(1,"Aparna",  "HR",30000 ));
+        list.add(new Employee(2, "Babua", "IT",30000 ));
+        list.add(new Employee(3, "Celina", "ACCOUNTS", 40000 ));
+        list.add(new Employee(4, "Dion", "HR", 40000 ));
+        list.add(new Employee(5, "Ezekiel", "IT", 60000 ));
+
+
+        // Maximum and Average
+        Optional<Integer> maxSal = list.stream().map(x -> x.getSal()).max(Integer::compareTo);
+        Double averageSal = list.stream().collect(averagingInt(Employee::getSal));
+
+        //count of employee names tarting with a
+       // print(findCountOfEmpWithnameStartingFrom(list, "A"));
+       Predicate<Employee> namePredicate = namestarting("A").or(namestarting("a"));
+        long countEmployeeNamesStartingWithA = list.stream().filter(namePredicate).count();
+
+        //Groupby Dept with employee ID
+        //// ["HR" -> "1,2,3"]
+        Map<String, List<Integer>> groupingByDeptAndListofEmployeeId = list.stream().collect(groupingBy(Employee::getDepartment, mapping(Employee::getEmpCode, toList())));
+
+        //grouping by department
+        Map<String, List<Employee>> groupEmployeeByDept = list.stream().collect(groupingBy(Employee::getDepartment));
+
+        //grouping by number of employees in department
+        Map<String, Integer> groupEmployeesByDeptWithCount = list.stream().collect(groupingBy(Employee::getDepartment, summingInt(e -> 1)));
+
+        //AverageSalByDept
+        Map<String, Double> avgSalByDept = list.stream().collect(groupingBy(Employee::getDepartment, averagingInt(Employee::getSal)));
+
+        //partitioning by IT and Non IT
+        Map<Boolean, List<Employee>> partitioningByITAndNonIT = list.stream().collect(partitioningBy(x -> x.getDepartment().equals("IT")));
+
+        //return names of all employees before C
+        Predicate<Employee> namesStartingWithC = namestarting("C").or(namestarting("c"));
+       String allEmployeesNamesBeforeC = list.stream().takeWhile(namesStartingWithC.negate()).map(x->x.getName()).collect(joining(","));
+
+        System.out.println("---------------------------------------------------------------------------------------------");
+        System.out.println(allEmployeesNamesBeforeC);
+        System.out.println("---------------------------------------------------------------------------------------------");
+        System.out.println("Partitioning By Test");
+        partitioningByITAndNonIT.entrySet().stream().forEach(System.out::println);
+        System.out.println("---------------------------------------------------------------------------------------------");
+        System.out.println("Group By Mapping  Test");
+        groupingByDeptAndListofEmployeeId.entrySet().stream().forEach(System.out::println);
+    }
+
+    public static Predicate<Employee> namestarting(String string){
+       return employee->employee.getName().startsWith(string);
+    }
+
+
+    public void sortEmployeeList(List<Employee> empList, Comparator<Employee> sortingStrategy){
+
+    }
+
 }

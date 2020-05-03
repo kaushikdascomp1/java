@@ -17,5 +17,21 @@ public class NAryTreeInOrder {
         }
     }
 
+    //Traversing an NAry in inorder traversal
+
+    public static void inOrderNAry(Node node){
+        if(node == null)
+            return;
+        //Traversing n-1 nodes
+        int total = node.children.length;
+        for (int i=0;i<total-1;i++){
+            inOrderNAry(node.children[i]);
+        }
+        //printing all values
+        System.out.println(node.val);
+        //Traversing the nth node
+        inOrderNAry(node.children[total-1]);
+    }
+
 
 }
