@@ -1,5 +1,7 @@
 package com.interview.java.designpatterns.trafficcontrolsystem;
 
+import java.util.Objects;
+
 public class TrafficControlSystem implements Runnable {
 
     public final static int BUTTON_THRESHOLD = 1;
@@ -56,5 +58,19 @@ public class TrafficControlSystem implements Runnable {
         System.out.println("Traffic signal turns " + state);
         this.state = state;
         this.stateSecondsRemaining = state.durationInSeconds;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof TrafficControlSystem)) return false;
+        TrafficControlSystem that = (TrafficControlSystem) o;
+        return stateSecondsRemaining == that.stateSecondsRemaining &&
+                state == that.state;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(state, stateSecondsRemaining);
     }
 }

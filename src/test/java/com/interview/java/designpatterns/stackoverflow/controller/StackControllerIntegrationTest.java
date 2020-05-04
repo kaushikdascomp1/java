@@ -13,7 +13,6 @@ import org.springframework.test.context.ActiveProfiles;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-
 @ActiveProfiles("test")
 @SpringBootTest(webEnvironment= SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class StackControllerIntegrationTest {
@@ -31,7 +30,6 @@ public class StackControllerIntegrationTest {
 
         final String baseUrl = new StringBuilder().append("http://localhost:").append(randomServerPort).append("/api/stack/get/allquestions").toString();
 
-        String expected = "{id:1,name:\"A Guide to the Bodhisattva Way of Life\",author:\"Santideva\",price:15.41}";
 
         HttpEntity<String> entity = new HttpEntity<String>(null, headers);
         ResponseEntity<Question[]> responseEntity = restTemplate.exchange(

@@ -36,11 +36,6 @@ public class Question {
     @JoinColumn(name = "answer_id")
     public List<Answer> answers = new ArrayList<>();
 
-    /*@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true,fetch = FetchType.EAGER)
-   // @JoinColumn(name = "comment_id")
-    public List<Comment> comments = new ArrayList<>();*/
-
-
     @Column
     public QuestionClosingRemark questionClosingRemark;
     @Column
