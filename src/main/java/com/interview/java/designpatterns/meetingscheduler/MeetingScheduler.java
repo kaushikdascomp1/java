@@ -14,7 +14,7 @@ public class MeetingScheduler {
         ms.addMeeting(new Meeting(1030, 1100));
         ms.addMeeting(new Meeting(1101, 1130));
         ms.addMeeting(new Meeting(1131, 1245));
-
+        System.out.println(ms.meetingSchedulerSet);
         ms.addMeeting(new Meeting(1105, 1145));
         ms.addMeeting(new Meeting(1205, 1345));
 

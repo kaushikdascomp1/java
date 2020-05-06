@@ -14,10 +14,10 @@ public class Meeting implements Comparable<Meeting> {
 
     @Override
     public int compareTo(Meeting o) {
-        if (o.getStartTime().compareTo(this.getEndTime()) > 0)
-            return 1;
-        else if (o.getEndTime().compareTo(this.startTime) < 0)
+        if (this.getEndTime().compareTo(o.getStartTime())<0)
             return -1;
+        else if (this.startTime.compareTo(o.getEndTime()) >0)
+            return 1;
         else
             return 0;
     }
