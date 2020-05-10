@@ -40,6 +40,22 @@ public class IsBST {
         return true;
     }
 
+    //check bst tree using min max
+
+    public static boolean checkBstMinMax(Node root){
+        boolean check = checkBSTMinMaxUtil(root,Integer.MIN_VALUE,Integer.MAX_VALUE);
+        return check;
+    }
+    public static boolean checkBSTMinMaxUtil(Node root, int min, int max){
+        if(null == root)
+            return false;
+        // Maximum value in the left sub tree is smaller and smallest vale in the right sub tree is greater
+        if( root.value > max || root.value < min)
+            return false;
+        //check left and right sub tree
+        return (checkBSTMinMaxUtil(root.left,min,root.value-1) && checkBSTMinMaxUtil(root.right,root.value+1,max));
+    }
+
     public static void printTree(Node root){
         if (null == root)
             return;

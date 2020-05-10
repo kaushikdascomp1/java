@@ -29,8 +29,7 @@ public class FindSubArrayToGivenSum {
                 if(curr_sum == sum){
                     endIndex = j-1;
                     starIndex = i;
-                    int p = j-1;
-                    System.out.println("Sub Array Sum is from Index: "+i +" till " +p);
+                    System.out.println("Sub Array Sum is from Index: "+starIndex +" till " +endIndex);
                 }
                 if(curr_sum > sum || j==arr.length)
                     break;

@@ -20,7 +20,7 @@ public class SpiralMatrix {
 
     public static void printSpiral(int[][] mat){
         int top = 0; int right = mat.length-1;
-        int left =0; int bottom = mat[0].length-1; //This is an important step
+        int left = 0; int bottom = mat[0].length-1; //This is an important step
 
 
            /*if (left>right)

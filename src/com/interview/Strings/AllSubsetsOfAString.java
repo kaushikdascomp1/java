@@ -6,6 +6,7 @@ import java.util.List;
 public class AllSubsetsOfAString {
 
     /**
+     * This is contiguous
      * The subset of a string is the character or the group of characters that are present inside the string.
      * For example, all possible subsets of a string "FUN" will be F, U, N, FU, UN, FUN.
      * o/p: A
