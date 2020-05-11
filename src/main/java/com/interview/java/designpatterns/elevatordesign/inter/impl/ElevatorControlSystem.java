@@ -72,8 +72,7 @@ public class ElevatorControlSystem implements ElevatorControlSystemFactory {
                             currElevator.popDestination();
                             break;
                     }
-                    if(currElevator.direction() == ElevatorDirection.UP)
-                        break;
+
 
             }
         }
