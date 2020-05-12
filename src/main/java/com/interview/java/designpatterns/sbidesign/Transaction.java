@@ -1,4 +1,4 @@
-package com.interview.java.designpatterns.bankapplication;
+package com.interview.java.designpatterns.sbidesign;
 
 import javax.persistence.*;
 

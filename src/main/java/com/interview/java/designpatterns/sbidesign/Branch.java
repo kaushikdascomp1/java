@@ -1,4 +1,4 @@
-package com.interview.java.designpatterns.bankapplication;
+package com.interview.java.designpatterns.sbidesign;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
