@@ -11,8 +11,9 @@ public class LowestCommonAncestor {
     static boolean v1 = false;
     static boolean v2 = false;
     public static Node findLca(Node root, int a, int b){
-            if(v1 && v2){
-                return findLcaUtil(root, a, b);
+        Node lcaUtil = findLcaUtil(root, a, b);
+        if(v1 && v2){
+                return lcaUtil;
             }
             return null;
     }
@@ -20,15 +21,12 @@ public class LowestCommonAncestor {
     public static Node findLcaUtil(Node root, int n1, int n2){
         if(null == root)
             return null;
-        Node temp = null;
         if(root.value == n1){
             v1 = true;
-            temp = root;
         }
 
         if(root.value == n2){
             v2 = true;
-            temp = root;
         }
 
         Node leftLca = findLcaUtil(root.left,n1,n2);
@@ -39,7 +37,7 @@ public class LowestCommonAncestor {
             return root;
         }
 
-        //else if one of them is not null return the left or the right lca
+        //else if one of them is not null which means both the keys are either present on left side or right side return the left or the right lca
         return leftLca != null ? leftLca : rightLca;
 
 

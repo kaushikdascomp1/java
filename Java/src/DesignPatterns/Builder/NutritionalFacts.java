@@ -44,11 +44,10 @@ public class NutritionalFacts {
         }
 
         public NutritionalFacts build(){
-            if(servings < 0 || servingSize<0)
+            if(servings < 0 || servingSize < 0)
                 throw new IllegalArgumentException();
             return new NutritionalFacts(this);
         }
-
 
 
     }
@@ -62,5 +61,5 @@ public class NutritionalFacts {
         carbohydrates = builder.carbohydrates;
     }
 
-    NutritionalFacts cocaCola = new Builder(240,8).calories(300).fat(20).protein(3).carbohydrates(200).build();
+    NutritionalFacts cocaCola = new NutritionalFacts.Builder(240,8).calories(300).fat(20).protein(3).carbohydrates(200).build();
 }

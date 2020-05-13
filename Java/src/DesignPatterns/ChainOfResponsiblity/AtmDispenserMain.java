@@ -13,7 +13,7 @@ public class AtmDispenserMain {
        DispenseChain c3 = new TenDollarDispenser();
 
        chain.setNextChain(c2);
-        c2.setNextChain(c3);
+       c2.setNextChain(c3);
 
     }
 
