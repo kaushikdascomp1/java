@@ -1,4 +1,4 @@
-package com.interview.java.designpatterns.sbidesign;
+package com.interview.java.designpatterns.bankapplication;
 
 import java.util.List;
 
@@ -9,15 +9,9 @@ public class CurrentAccount extends BankAccount {
         super.setInterestRate(0d);
     }
 
-
-
-    private Transaction lock = new Transaction();
-
     @Override
     public synchronized boolean withdraw(Double amount) throws BankAccountException {
-        synchronized (lock){
 
-        }
         return super.withdraw(amount);
     }
 

@@ -1,4 +1,4 @@
-package com.interview.java.designpatterns.sbidesign;
+package com.interview.java.designpatterns.bankapplication;
 
 public class BankApplicationDriver {
 

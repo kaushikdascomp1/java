@@ -1,4 +1,4 @@
-package com.interview.java.designpatterns.sbidesign;
+package com.interview.java.designpatterns.bankapplication;
 
 import java.util.List;
 
@@ -9,8 +9,6 @@ public class SavingsAccount extends BankAccount {
         super.setMinimumBalance(10000d);
         super.setInterestRate(4.5d);
     }
-
-
 
     @Override
     public synchronized boolean withdraw(Double amount) throws BankAccountException{

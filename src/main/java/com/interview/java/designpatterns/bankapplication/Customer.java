@@ -1,4 +1,4 @@
-package com.interview.java.designpatterns.sbidesign;
+package com.interview.java.designpatterns.bankapplication;
 
 import java.util.List;
 

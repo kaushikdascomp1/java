@@ -2,13 +2,13 @@ package com.interview.java.designpatterns.snakeandladder;
 
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
+import java.util.Optional;
 import java.util.Queue;
 
 public class SnakeLadderService {
 
     public SnakeLadderBoard snakeLadderBoard;
-    public Queue<Players> playersQueue;
+    public Queue<Player> playerQueue;
     public int initialPlayers;
 
     public boolean isGameCompleted;
@@ -16,7 +16,7 @@ public class SnakeLadderService {
 
     public SnakeLadderService(int size){
         this.snakeLadderBoard = new SnakeLadderBoard(size);
-        playersQueue = new LinkedList<>();
+        playerQueue = new LinkedList<>();
         winningPosition = snakeLadderBoard.getSize();
     }
 
@@ -32,11 +32,15 @@ public class SnakeLadderService {
         //check for test cases where after the snake end or the ladder end there could be another snake or ladder
         int newPosition = previousPos;
 
-        for (Snake snake:snakeLadderBoard.getSnakes()){
+        /*for (Snake snake:snakeLadderBoard.getSnakes()){
             if(snake.getStart() == previousPos){
                 System.out.println("Snake Bite at:: " + previousPos);
                 newPosition = snake.getEnd();
             }
+        }*/
+        Optional<Snake> snakeEnd = snakeLadderBoard.getSnakes().stream().filter(snake -> snake.getStart() == previousPos).findFirst();
+        if(snakeEnd.isPresent()){
+            newPosition = snakeEnd.get().getEnd();
         }
 
         for (Ladder ladder:snakeLadderBoard.getLadders()){
@@ -50,8 +54,8 @@ public class SnakeLadderService {
 
     }
 
-    public int moveplayer(Players players, int newPosition){
-        int oldPos = snakeLadderBoard.getPlayerPieces().get(players.getId());
+    public int moveplayer(Player player, int newPosition){
+        int oldPos = snakeLadderBoard.getPlayerPieces().get(player.getId());
         int newPos = oldPos + newPosition;
 
 
@@ -62,22 +66,22 @@ public class SnakeLadderService {
             newPos = movePlayerWithSnakeLadder(newPos);
         }
 
-        snakeLadderBoard.getPlayerPieces().put(players.getId(),newPos);
+        snakeLadderBoard.getPlayerPieces().put(player.getId(),newPos);
         return newPos;
     }
 
-    public boolean hasPlayerWon(Players players){
-        int playerPos = snakeLadderBoard.getPlayerPieces().get(players.getId());
+    public boolean hasPlayerWon(Player player){
+        int playerPos = snakeLadderBoard.getPlayerPieces().get(player.getId());
         if(playerPos == winningPosition)
             return true;
         else
             return false;
     }
 
-    public void setPlayersQueue(List<Players> playerList){
+    public void setPlayerQueue(List<Player> playerList){
             this.initialPlayers = playerList.size();
-            for (Players player:playerList){
-                playersQueue.add(player);
+            for (Player player:playerList){
+                playerQueue.add(player);
                 this.snakeLadderBoard.getPlayerPieces().put(player.getId(),0);
             }
     }
@@ -90,13 +94,13 @@ public class SnakeLadderService {
     public void startGame(){
         while (!isGameCompleted()){
             int diceRoll = snakeLadderBoard.diceRoll();
-            Players players = playersQueue.poll();
-            moveplayer(players,diceRoll);
-            if(hasPlayerWon(players)){
-                System.out.println("Yeah!! Player won::" + players.getName());
-                this.snakeLadderBoard.getPlayerPieces().remove(players.getId());
+            Player player = playerQueue.poll();
+            moveplayer(player,diceRoll);
+            if(hasPlayerWon(player)){
+                System.out.println("Yeah!! Player won::" + player.getName());
+                this.snakeLadderBoard.getPlayerPieces().remove(player.getId());
             }else {
-                playersQueue.add(players);
+                playerQueue.add(player);
             }
         }
     }

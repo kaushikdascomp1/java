@@ -10,11 +10,11 @@ public class SnakeLadderDriver {
         List<Snake> snakeList = Arrays.asList(new Snake(26,0), new Snake(20,8), new Snake(16,3), new Snake(18,6));
 
         SnakeLadderService snakeLadderService = new SnakeLadderService(100);
-        Players players1 = new Players(1,"Kaushik");
-        Players players2 = new Players(2,"Shivam");
-        List<Players> playersList = Arrays.asList(players1,players2);
+        Player player1 = new Player(1,"Kaushik");
+        Player player2 = new Player(2,"Shivam");
+        List<Player> playerList = Arrays.asList(player1, player2);
 
-        snakeLadderService.setPlayersQueue(playersList);
+        snakeLadderService.setPlayerQueue(playerList);
         snakeLadderService.setLadders(ladderList);
         snakeLadderService.setSnakes(snakeList);
 

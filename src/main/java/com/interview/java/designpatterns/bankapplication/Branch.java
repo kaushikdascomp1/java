@@ -1,4 +1,4 @@
-package com.interview.java.designpatterns.sbidesign;
+package com.interview.java.designpatterns.bankapplication;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -43,11 +43,15 @@ public class Branch {
 
     public boolean createBankAccount(String panNumber, String type, Double amount){
         BankAccount account;
-        if(type.equals("Savings")){
-            account = new SavingsAccount();
-
-        }else {
-            account = new CurrentAccount();
+        switch (type){
+            case "Savings":
+                account = new SavingsAccount();
+                break;
+            case "Current":
+                account = new CurrentAccount();
+                break;
+            default:
+                account = new SavingsAccount();
         }
         bankAccounts.add(account);
         return true;

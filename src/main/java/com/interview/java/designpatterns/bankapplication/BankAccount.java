@@ -1,25 +1,21 @@
-package com.interview.java.designpatterns.sbidesign;
+package com.interview.java.designpatterns.bankapplication;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
-@Table
+
 public abstract class BankAccount {
 
-    @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+
     private String accountNumber;
-    @Column
     private volatile Double minimumBalance;
-    @Column
     private volatile Double currentBalance;
-    @Column
+
     private Double interestRate;
 
-    @OneToMany(mappedBy = "transaction",fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private List<Transaction> transactions = new ArrayList<>();
+
+    private List<Transaction> transactions;
 
 
     public  boolean withdraw(Double amount) throws BankAccountException{

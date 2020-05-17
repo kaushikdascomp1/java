@@ -1,11 +1,11 @@
 package com.interview.java.designpatterns.snakeandladder;
 
-public class Players {
+public class Player {
 
     private int id;
     private String name;
 
-    public Players(int id, String name){
+    public Player(int id, String name){
         this.id = id;
         this.name = name;
     }

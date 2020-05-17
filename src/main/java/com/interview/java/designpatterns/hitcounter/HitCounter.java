@@ -47,7 +47,7 @@ public class HitCounter {
     int getHits(int timestamp){
         int i;
         for(i=0; i< hitscounter.size(); i++){
-            if(hitscounter.get(i)>timestamp - 300)
+            if(timestamp - hitscounter.get(i)< 300)
                 break;
         }
         return hitscounter.size() - i;
