@@ -15,6 +15,18 @@ public class Graph {
             adjArr[i] = new LinkedList<>();
         }
     }
+    /*
+     a --> b
+     |      e
+     c----d
+
+     arr[]
+     1 a
+     2b
+     c
+     d
+     e
+     */
 
     public void addEdge(Graph graph, int src, int dest){
         graph.adjArr[src].add(dest);

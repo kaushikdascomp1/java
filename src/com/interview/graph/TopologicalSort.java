@@ -59,9 +59,7 @@ public class TopologicalSort {
         Stack<Integer> stack = new Stack<>();
         boolean visited[] = new boolean[v];
 
-        for(int i=0;i<v;i++){
-            visited[i] = false;
-        }
+
 
         for (int i = 0; i <v ; i++) {
             if(visited[i] == false)

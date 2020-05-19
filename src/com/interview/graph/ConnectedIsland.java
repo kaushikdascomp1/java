@@ -19,6 +19,41 @@ public class ConnectedIsland {
         int countIslands = island.countIslands(M);
         System.out.println(countIslands);
 
+        //Connected Islands problem using recursion
+        int countUsingRecursion = island.countIslandsOnlyRecursion(M);
+        System.out.println(countUsingRecursion);
+
+    }
+
+    public int countIslandsOnlyRecursion(int mat[][]){
+        int ROW_NUM = mat.length;
+        int COL_NUM = mat[0].length;
+        int count = 0;
+        for(int i=0;i<ROW_NUM;i++){
+            for(int j=0;j<COL_NUM;j++){
+                if(mat[i][j] == 1){
+                    getRegionSize(mat, i, j);
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+
+    private void getRegionSize(int[][] mat, int row_num, int col_num) {
+
+        //Reversing the real condition
+        if((row_num < 0 || row_num>=mat.length) || (col_num < 0 || col_num>=mat[0].length) || mat[row_num][col_num] != 1) {
+            return;
+        }
+        //mark the cell as visited
+        mat[row_num][col_num] = 0;
+        getRegionSize(mat,row_num+1,col_num);
+        getRegionSize(mat,row_num-1,col_num);
+
+        getRegionSize(mat,row_num,col_num+1);
+        getRegionSize(mat,row_num,col_num-1);
+
     }
 
     public int countIslands(int M[][]){
@@ -57,6 +92,9 @@ public class ConnectedIsland {
         return (row_num >=0 && row_num < ROW_NUM) && (col_num >= 0 && col_num < COL_NUM) && (M[row_num][col_num] == 1
                 && !visited[row_num][col_num]);
     }
+
+    //This connected island problem can also be solved without using the boolean visited matrix using recursion but
+
 
 
 }
