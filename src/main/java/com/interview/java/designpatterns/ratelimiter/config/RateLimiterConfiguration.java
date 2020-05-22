@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
+import org.springframework.util.StringUtils;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
@@ -53,9 +54,11 @@ public class RateLimiterConfiguration extends HandlerInterceptorAdapter {
         }
         //Get request url's from servlet request
         String requestUrl = request.getRequestURI();
-
         //Get Username from Servlet Request
         String user = request.getHeader("User");
+
+        if(null == user)
+            user = "";
 
         Predicate<UserApiModel> predicate = getPredicate(user, requestUrl);
         Optional<Integer> permits = limiterConnects.entrySet().stream().filter(e -> predicate.test(e.getKey())).map(x -> x.getValue()).findFirst();
@@ -90,6 +93,7 @@ public class RateLimiterConfiguration extends HandlerInterceptorAdapter {
                 Semaphore rateLimitPermit = new Semaphore(permits);
 
                 limiters.put(userApiDetail, Optional.ofNullable(rateLimitPermit));
+                limiterConnects.put(userApiDetail,permits);
                 return rateLimitPermit;
             }
         }
