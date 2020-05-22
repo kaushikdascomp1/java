@@ -28,6 +28,8 @@ public class RateLimiterConfiguration extends HandlerInterceptorAdapter {
     @Value("${rate.limit.enabled}")
     private boolean enabled;
 
+    public static final int DEFAULT_PERMIT = 1;
+
     private Map<UserApiModel, Optional<Semaphore>> limiters = new ConcurrentHashMap<>();
 
     private static Map<UserApiModel,Integer> limiterConnects = new HashMap<>();
@@ -61,7 +63,8 @@ public class RateLimiterConfiguration extends HandlerInterceptorAdapter {
         //get key
         Optional<UserApiModel> userApiDetails = limiterConnects.entrySet().stream().filter(e -> predicate.test(e.getKey())).map(x -> x.getKey()).findFirst();
 
-        Semaphore rateLimiter = getRateLimiter(userApiDetails.isPresent() ? userApiDetails.get(): new UserApiModel(user,requestUrl),permits.isPresent() ? permits.get() : 0);
+
+        Semaphore rateLimiter = getRateLimiter(userApiDetails.isPresent() ? userApiDetails.get(): new UserApiModel(user,requestUrl),permits.isPresent() ? permits.get() : DEFAULT_PERMIT);
 
         boolean allowRequest = rateLimiter.tryAcquire();
 
