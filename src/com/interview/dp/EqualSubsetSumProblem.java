@@ -9,6 +9,9 @@ public class EqualSubsetSumProblem {
     // two subsets such that the sum of elements in both subsets is same.
     //https://www.geeksforgeeks.org/partition-problem-dp-18/
 
+    //This is similar to Subset sum problem, If you can find the subset sum of Half of the array
+    //The pther half should be of similar sum
+
     public static void main(String[] args) {
         int num[] = {1,2,3,4};
         //Should return True
