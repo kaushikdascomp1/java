@@ -7,7 +7,7 @@ public class CoinChange {
 
     public static void main(String[] args) {
         int[] denominations = {1, 2, 3};
-        System.out.println(countChange(denominations, 5));
+        System.out.println(coinChangeRecursive(denominations, 5));
     }
 
     public static int coinChange(int[] S, int m, int n){
@@ -37,7 +37,7 @@ public class CoinChange {
     public static int coinChangeRecursive(int[] denominations, int total, int currentIndex){
         if(total == 0)
             return 1;
-        if(denominations.length == 0 || currentIndex > denominations.length)
+        if(denominations.length == 0 || currentIndex >= denominations.length)
             return 0;
         // Either we select it or we don't select it
         // recursive call after selecting the coin at the currentIndex
