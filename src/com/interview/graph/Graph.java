@@ -1,18 +1,19 @@
 package src.com.interview.graph;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Graph {
 
     int v;
-    LinkedList<Integer> adjArr[];
+    List<List<Integer>> adjArr;
 
     public Graph(int v){
         this.v = v;
-        this.adjArr = new LinkedList[v];
+        this.adjArr = new ArrayList<>();
 
         for(int i=0;i<v;i++){
-            adjArr[i] = new LinkedList<>();
+            adjArr.add(new ArrayList<>());
         }
     }
     /*
@@ -29,17 +30,17 @@ public class Graph {
      */
 
     public void addEdge(Graph graph, int src, int dest){
-        graph.adjArr[src].add(dest);
+        graph.adjArr.get(src).add(dest);
 
         //Since graph is adirected add destination to src is also required
-        graph.adjArr[dest].add(src);
+        graph.adjArr.get(dest).add(src);
     }
 
     public void printGraph(Graph graph){
         for(int i=0;i<graph.v;i++){
             System.out.println("Adjacency List Head is: " + i);
             System.out.println("Elements are:");
-            for (Integer pCrawl: graph.adjArr[i]){
+            for (Integer pCrawl: graph.adjArr.get(i)){
                 System.out.println("->"+pCrawl);
             }
             System.out.println("\n");
