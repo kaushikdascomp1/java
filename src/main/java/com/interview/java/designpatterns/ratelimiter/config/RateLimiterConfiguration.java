@@ -60,12 +60,12 @@ public class RateLimiterConfiguration extends HandlerInterceptorAdapter {
         if(null == user)
             user = "";
 
+
         Predicate<UserApiModel> predicate = getPredicate(user, requestUrl);
-        Optional<Integer> permits = limiterConnects.entrySet().stream().filter(e -> predicate.test(e.getKey())).map(x -> x.getValue()).findFirst();
+        Optional<Integer> permits = limiterConnects.entrySet().parallelStream().filter(e -> predicate.test(e.getKey())).map(x -> x.getValue()).findAny();
 
         //get key
-        Optional<UserApiModel> userApiDetails = limiterConnects.entrySet().stream().filter(e -> predicate.test(e.getKey())).map(x -> x.getKey()).findFirst();
-
+        Optional<UserApiModel> userApiDetails = limiterConnects.entrySet().stream().filter(e -> predicate.test(e.getKey())).map(x -> x.getKey()).findAny();
 
         Semaphore rateLimiter = getRateLimiter(userApiDetails.isPresent() ? userApiDetails.get(): new UserApiModel(user,requestUrl),permits.isPresent() ? permits.get() : DEFAULT_PERMIT);
 
@@ -85,7 +85,7 @@ public class RateLimiterConfiguration extends HandlerInterceptorAdapter {
         if (limiters.containsKey(userApiDetail)) {
             return limiters.get(userApiDetail).get();
         } else {
-            synchronized(userApiDetail.getClass()) {
+            synchronized(userApiDetail) {
                 // double-checked locking to avoid multiple-reinitializations
                 if (limiters.containsKey(userApiDetail)) {
                     return limiters.get(userApiDetail).get();
