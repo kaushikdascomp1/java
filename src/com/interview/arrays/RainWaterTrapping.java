@@ -9,6 +9,10 @@ public class RainWaterTrapping {
         int[] rainWater = {3, 0, 2, 0, 4};
         System.out.println(maxWater(rainWater));
         System.out.println(maxAreaBrute(rainWater));
+
+        int[] height = {2,1,5,6,2,3};
+        System.out.println(maxAreaTwoPointerTechnique(height));
+        //Should return 10 as 10 is the area of largest rectangle
     }
 
     //With O(n) solution
@@ -51,7 +55,7 @@ public class RainWaterTrapping {
     }
 
     //Using Two pointer technique solving in O(n)
-    public static int maxAreaTwoPOinterTechnique(int[] heights){
+    public static int maxAreaTwoPointerTechnique(int[] heights){
         if(heights.length<=1)
             return 0;
         int i=0;

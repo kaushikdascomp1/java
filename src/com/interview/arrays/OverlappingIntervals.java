@@ -30,6 +30,14 @@ public class OverlappingIntervals {
        Arrays.stream(mergeIntervals(intervals)).forEach(e->{
            System.out.println(e.toString());
        });
+
+        int[][] overlaps = mergeIntervals(intervals);
+        for(int[] over:overlaps){
+            for(int st:over){
+                System.out.print(st+" ");
+            }
+            System.out.println();
+        }
     }
 
     public static int[][] mergeIntervals(int[][] intervals){
@@ -52,5 +60,18 @@ public class OverlappingIntervals {
         return result.toArray(new int[result.size()][]);
     }
 
+
+    //Meeting room problem 2:
+    /*
+    Check whether a person can attend all meetings
+    Given an array of meeting time intervals consisting of
+    start and end times [[s1,e1],[s2,e2],...] (si <ei),
+    determine if a person could attend all meetings. For
+    example, Given [[0, 30],[5, 10],[15, 20]], return false.
+        Java Solution
+     */
+
+    // A person can attend all meetings if current end is < next start
+    // if(interval[i].end>interval[i+1].start) then return false
 
 }
