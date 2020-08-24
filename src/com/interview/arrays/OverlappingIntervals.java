@@ -60,6 +60,40 @@ public class OverlappingIntervals {
         return result.toArray(new int[result.size()][]);
     }
 
+   //Insert an INterval and merge as well
+    public class Interval{
+        int start;
+        int end;
+
+        public Interval(){
+            this.start = 0;
+            this.end = 0;
+        }
+
+        public Interval(int start, int end){
+            this.start = start;
+            this.end = end;
+        }
+   }
+
+   public ArrayList<Interval> insertInterval(List<Interval> intervals, Interval newInterval){
+        intervals.sort((i1,i2)->i1.start-i2.start);
+
+        ArrayList<Interval> result = new ArrayList<>();
+        for(Interval interval: intervals){
+            if(interval.end < newInterval.start)
+                result.add(interval);
+            else if(interval.start > newInterval.end){
+                result.add(newInterval);
+                newInterval = interval;
+            }else if(interval.end >= newInterval.start || interval.start <= newInterval.end){
+                newInterval = new Interval(Math.min(interval.start, newInterval.start), Math.max(interval.end, newInterval.end));
+            }
+        }
+
+        result.add(newInterval);
+        return result;
+   }
 
     //Meeting room problem 2:
     /*
