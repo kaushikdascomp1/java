@@ -31,7 +31,7 @@ public class NextGreaterElement {
 
         //swap min and i
         swap(input, i - 1, min);
-        //Arrays.sort(input,i,n);
+        Arrays.sort(input,i,n);
         for (int j = 0; j < n; j++) {
             System.out.println(input[j]);
         }

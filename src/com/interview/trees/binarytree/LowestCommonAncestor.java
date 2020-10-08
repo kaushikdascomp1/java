@@ -23,10 +23,12 @@ public class LowestCommonAncestor {
             return null;
         if(root.value == n1){
             v1 = true;
+            return root;
         }
 
         if(root.value == n2){
             v2 = true;
+            return root;
         }
 
         Node leftLca = findLcaUtil(root.left,n1,n2);

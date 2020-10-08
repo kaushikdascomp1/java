@@ -16,6 +16,22 @@ public class StockBuySell {
         //https://www.geeksforgeeks.org/stock-buy-sell/
 
     }
+    //Simple solution where you can buy and sell only once
+    //Keep a track of the minimum
+
+    public static int findMaxProfitStock(int[] stock){
+        if(stock == null || stock.length == 0)
+            return 0;
+        int result = 0;
+        int min = stock[0];
+
+        for(int i=1;i<stock.length;i++){
+            result = Math.max(result,stock[i]-min);
+            min = Math.min(min,stock[i]);
+        }
+
+        return result;
+    }
 
     public static int maxProfit(int[] stock, int start, int end){
         if (end <= start)
