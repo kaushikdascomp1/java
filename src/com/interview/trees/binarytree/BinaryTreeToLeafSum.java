@@ -2,6 +2,8 @@ package src.com.interview.trees.binarytree;
 
 import src.com.interview.trees.model.Node;
 
+import java.util.*;
+
 public class BinaryTreeToLeafSum {
 
     /**
@@ -37,6 +39,10 @@ public class BinaryTreeToLeafSum {
 
         System.out.println(sumTree(node,0));
         //Printed 13997
+
+        //Print all pathsfrom root to leaf
+        BinaryTreeToLeafSum binaryTreeToLeafSum = new BinaryTreeToLeafSum();
+        binaryTreeToLeafSum.printPaths(node, new Stack<>());
     }
 
     public static int sumTree(Node root, int val){
@@ -50,5 +56,27 @@ public class BinaryTreeToLeafSum {
             return val;
 
         return sumTree(root.left,val)+sumTree(root.right,val);
+    }
+
+    //Print all paths from root to leaf
+    //Either yu can use a deque or a stack
+    public void printPaths(Node root, Stack<Integer> path){
+        if(null == root)
+            return;
+        //path.addLast(root.value);
+        path.add(root.value);
+        //path.add(root.value);
+
+        if(null == root.left && null == root.right){
+            System.out.println(path);
+
+        }
+
+        printPaths(root.left,path);
+        printPaths(root.right,path);
+
+        path.remove(path.size()-1);
+       // path.removeLast();
+
     }
 }

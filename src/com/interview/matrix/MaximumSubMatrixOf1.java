@@ -2,6 +2,10 @@ package src.com.interview.matrix;
 
 public class MaximumSubMatrixOf1 {
 
+    /*
+      To find the maximum square sub matrix of 1
+     */
+
     public static void main(String[] args) {
         int M[][] = {{0, 1, 1, 0, 1},
                 {1, 1, 0, 1, 0},
@@ -19,10 +23,12 @@ public class MaximumSubMatrixOf1 {
         System.out.println("Rows are:: "+R+"  :: Collumns::  "+C);
         int[][] S = new int[R][C];
 
+        //Fill the auxillary matrix with first row from matrix
         for(int i=0;i<R;i++){
             S[i][0] = mat[i][0];
         }
 
+        //Fill the auxillary matrix with first collumn from matrix
         for(int j=0;j<C;j++){
             S[0][j] = mat[0][j];
         }
@@ -53,7 +59,7 @@ public class MaximumSubMatrixOf1 {
 
         for(int i=max_i;i>max_i-max_S;i--){
             for(int j=max_j;j>max_j-max_S;j--){
-                System.out.print(S[i][j]+" ");
+                System.out.print(mat[i][j]+" ");
             }
             System.out.println();
         }
