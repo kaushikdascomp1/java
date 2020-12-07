@@ -1,7 +1,4 @@
-package Java.src;
-
-import Java.src.OddEven;
-import Java.src.Printer;
+package Java.src.CustomImplementation.multithreading.oddeven;
 
 public class Producer {
 

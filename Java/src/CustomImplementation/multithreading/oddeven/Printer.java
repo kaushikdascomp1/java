@@ -1,4 +1,4 @@
-package Java.src;
+package Java.src.CustomImplementation.multithreading.oddeven;
 
 public class Printer {
 

@@ -1,6 +1,4 @@
-package Java.src;
-
-import Java.src.Printer;
+package Java.src.CustomImplementation.multithreading.oddeven;
 
 public class OddEven implements Runnable{
     private Printer printer;
