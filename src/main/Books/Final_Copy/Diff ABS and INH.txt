@@ -1,0 +1,34 @@
+Interfaces should implement all the methods in the subclass but abstract class may not implement all the methods
+
+But for an abstract class extending an interface, it may be possible to define a class that doesn't implement all the interface's methods
+
+An abstract class may or may not include abstract methods.
+
+An abstract method is a method declared without implementation
+
+An abstract class can have non abstract methods and it is not necessary to implement the non-abstract methods but abstract methods must be overriden
+
+All method declaration in an interface are public and all methods must be implemented so it cannot be static
+
+When an abstract class is subclassed, the subclass usually provides implementation for all the abstract methods in its parent
+class and if it doesn't implement then the sub class must be declared as abstract
+
+But a class extending an interface, it should implement all the methods menttioned in the interface
+
+A concrete class can extend only one abstract class due to multiple inheritance problem and all methods must be implemented
+otherwise the concrete class must be declared as abstract
+
+But a class can extend multiple interfaces
+
+Interfaces are declared as public by default but abstract classes may be declared as private, protected
+
+Composition and Inheritance
+
+Inheritance is tightly coupled i.e. all the methods must be implemented by the base class
+In composition, it is loosely coupled using dynamic binding and polymorphism. It does not make the entire class dependant on the
+super class. Dynamic binding means JVM will decide at run time which method implementation to invoke based on class of object
+Code becomes easir to change in dynamic binding
+
+Abstract classes can have final methods-which cannot be overridden. So whatever we declare in the super class remains same while providing the
+implementation also, which cannot be done in case of interface
+Any change in the superclass will effect all the possible sub classes extending it but with composition it is not 

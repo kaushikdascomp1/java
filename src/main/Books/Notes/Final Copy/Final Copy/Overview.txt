@@ -1,0 +1,3 @@
+If we are using Struts in the presentation layer and Spring in the service layer, then we will be using the Spring Web module but not the Spring
+MVC module
+But if we are using Spring MVC module in the presentation layer we are using both the module

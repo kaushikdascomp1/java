@@ -1,0 +1,16 @@
+Client Server Architecture is implemented in two ways:
+1. Two tier achitecture
+2. Three tier architecture
+
+http://my.safaribooksonline.com/book/databases/9788131731925/database-system/ch01lev1sec12
+
+JDBC-set of Java API for executing SQL statements. API consists of set of classes and interfaces to enable programs to write pure java database 
+programs
+
+Stored Procedure-set of SQL statements that forms a logical unit and perform a particular task.Used to encapsulate a set of programs or queries
+to execute on database
+
+No global variable in java because it breaks referential transparency and creates collistion in namespace
+
+Very good algorithm:
+http://www.geeksforgeeks.org/find-first-repeating-element-array-integers/

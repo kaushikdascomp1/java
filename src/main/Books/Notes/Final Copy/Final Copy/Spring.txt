@@ -1,0 +1,72 @@
+Enable Annotations in Spring
+
+By context namespace as
+<context:annotation-config/>
+
+Beans can be initialised by factory before its first use
+init method and destroy method
+
+Create a class and create a method as init()
+<bean id="<some name>" class="<class name>" init-method="<method name>"/>
+<bean id="<some name>" class="<class name>" destroy-method="<method name>"/>
+
+Why use 
+
+Create a interface and declare a method
+
+Create a class implementing the interface
+Define the same method inside the class and write something
+
+Create another class implementing the same interface
+Define the same method inside the class and write something different
+
+In short create two classes implementing the same interface
+
+Create a service class and create an object reference to QuizMaster
+private Quizmaster<interface> quizMaster=new SpringQuizMaster();<class name implementing the interface>
+Create a new method and display something
+
+In the action class create a quizmasterservice object and call the method
+
+thus in service class we need to create two object and two methods for the two different classes which is said to be
+tightly coupled
+
+But using Dependency Injection, we need not create the two object models for quizmaster and use setter and getter method
+private QuizMaster quizMaster;
+
+Bean- A bean is simply an object that is instantiated, assembled and otherwise managed by the IoC container
+
+http://tech.sxinfo.net/UserFiles/mxk/File/eBook/java/spring/Spring_in_Action.pdf
+
+http://www.careercup.com/page?pid=java-interview-questions
+
+http://thecafetechno.com/tutorials/spring/describe-different-modules-of-spring-framework/
+
+Spring container can be loaded in two ways:
+BeanFactory
+Application Context
+
+Bean Factory:
+Resource resource = new FileSystemResource("beans.xml");
+BeanFactory factory = new XmlBeanFactory(resource);
+ 
+ClassPathResource resource = new ClassPathResource("beans.xml");
+BeanFactory factory = new XmlBeanFactory(resource);
+
+ApplicationContext can be of 3 types:
+FileSystemXmlApplicationContext 
+ClassPathXmlApplicationContext 
+WebXmlApplicationContext 
+
+Spring beans Eager and Lazy Initialization:
+By default, Spring “application context” eagerly creates and initializes all ‘singleton scoped‘ beans during application 
+startup itself but if you want to load it lazily you can do it in two ways
+1. XML based configuration: lazy-init="true" in bean definition
+2. Java Based configuration: @Lazy annotation on bean and @Lazy at class level
+Also, default-lazy-init="true" can also be used
+
+
+
+
+
+

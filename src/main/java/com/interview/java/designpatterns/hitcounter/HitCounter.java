@@ -7,7 +7,7 @@ public class HitCounter {
     static int hits[];
     static int times[];
 
-    public static final int MAX_DURATION_TRACK = 300;// tracking 300 secs 5mins
+    public static final int MAX_DURATION_TRACK = 300;// tracking 300 secs 5 mins
 
     public HitCounter(int maxDuration){
         this.hits = new int[maxDuration];
@@ -31,9 +31,10 @@ public class HitCounter {
     public static int getHitsCounter(int timestamp){
         int count = 0;
         for (int i=0;i<MAX_DURATION_TRACK;i++){
-            if(timestamp - times[i]<MAX_DURATION_TRACK)
+            if(timestamp - times[i] < MAX_DURATION_TRACK)
                 count +=hits[i];
         }
+
         return count;
     }
 

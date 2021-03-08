@@ -1,0 +1,74 @@
+Thread Priority
+MAx_PRIORITY
+MIN_PRIORITY
+NORM_PRIORITY
+dumpstack()-displays the call stack for the thread
+
+getContextClassLoader()-returns the class loader that is used to load classes and resources for this thread
+getThread()-returns thread priority settings
+void interrupt()-interrupts the thread
+
+PriorityQueue-It extends abstract queue and implements Queue interface. It creates a queue that is prioritized based on queue's comparator
+
+Type hierarchy of Java Class loaders:
+Bootstrap class Loader
+Extensions class loader
+System Class Loader
+
+The only purpose of constructor is to create an instance of the class and it does not have any return type not even void
+
+constructors can take access modifiers such as public,private protected but not abstract, final native, static or synchronized
+
+Static methods do not use this;they do not belong to class instance
+Super keyword can be used only when class extends the superclass and it will directly call the method in superclass without creating an instance
+of the class as the sub class already extends the super class
+super.getBirthInfo()--call method in super class getbirthinfo
+
+volatile keyword is used when the variable's value will be modified by different threads
+vlatile variable may be null but methods inside synchronized cannot be null thus while atempting to synchronize a null object will throw 
+NullPointerException
+
+this is used to refer to another constructor in same class but with different parameter list(polymorphic)
+
+http://www.javaworld.com/article/2076204/core-java/understanding-constructors.html
+
+Collection-Set,List,Queue,Dequeue
+
+Except for runtime exceptions compiler checks the compile time exceptions and it must be followed by try/catch
+If try/catch has return statement, the finally block will still run. flow jumps to finally and then back to return
+
+Ducking an exception means just add throws IO Exception before the method and when inside method you should mention this throw new exception
+
+When a method throws an exception, without catch, it is popped immediately from stack and control is transferred to the caller
+
+http://www.faqsguru.com/2011/12/goldmansachsjavainterviewquestions.html
+
+Only try block with no catch or finally not possible but try with only finally possible or with only catch
+
+instanceof checks if a reference is a part of an object which is a compile time check
+A a=new A();
+if(a instanceOf A)--returns true but null object returns false
+isInstance("") -- is a runtime check
+
+Thread.yield is almost similar to Thread.wait(), as both will release the lock to the monitor but yield comes effective
+in case of thread priority.This indicates that it’s not doing something too critical and can release the lock so other threads
+can take ans start working. 
+
+Suppose two threads set as high priority and low priority and if high priority task is not doing anything then it will 
+release the lock for other threads to take the lock and work accordingly
+
+AwaitTermination(1,TimeUnit)
+Waits for a specific period after a shutdown request is fired. If the tasks are not completed till then then timeout 
+will happen and current thread will be interrupted. WHichever happens first -- either task execution is completed before
+timeout or timeout happens
+
+shutdown--Initiates an orderly shotdown request in which previously submitted tasks are executed but no new tasks are accepted
+ShutdownNow-- Attempts to stop all actively executing tasks, halts the processing of waiting tasks and returns a list of
+tasks awaiting execution
+
+You need to call awaitTermination before calling shutdownNow
+executor.shutdown()
+executor.awaitTermination(5, Seconds)
+executor.shutdownNow()
+
+

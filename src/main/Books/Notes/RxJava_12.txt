@@ -1,0 +1,17 @@
+Attributes of Reactive Applications:
+Event driven, scalable,resilient, responsive
+
+Event driven applications support better concurrency and highly scalable asynchronous applications
+Even after high load reactive applications are responsive.
+
+Event Driven reactive Java is based on Observer pattern
+
+Resilient:  Graceful error handling and failure management
+
+RxJava default is single threaded unless we specify the multithreaded pattern.
+
+All downstream applications depends on the single upstream scheduler unless specified in each downstream systems with a scheduler
+Observer Cardinality:
+SingleResult Stream
+May Be result stream :: May or may not get a result	
+Completable result stream :  Only successful or fail

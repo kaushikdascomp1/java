@@ -1,0 +1,14 @@
+Inner classes are of 4 types::
+Static member classes-has access to all static memebers/methods of the parent
+Member Classes-It has access to all memebers/methods of the parent
+Local Classes-Declared within a block of code and are visible only in that block. Suppose the class is declared inside a method of outer class
+So whenever we call the outer class method, the inner class and its method are automatically called
+
+Local inner classes can't use local variable of outer class until it is declared as final. Or else declare the local vriable inside the local
+class
+
+Local class has access to the members of the enclosing class
+
+Anonymous classes-It has no name
+
+
