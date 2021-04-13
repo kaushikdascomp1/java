@@ -1,6 +1,0 @@
-POlymorphism-Method Overloading-COmpile time polymorphism
-If you just change the retun type of any method without changing the argument list then it is a type of method overriding not overloading
-You must change the argument list of the method in order to do method overloading although the return type can be changed for method overloading
-
-
-For method overriding, the return type and entire method is changed withput changing the argument type

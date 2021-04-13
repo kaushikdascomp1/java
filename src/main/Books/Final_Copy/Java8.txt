@@ -1,2 +1,0 @@
-Since lambda expressions can provide implementation of only one method that's why functional interface can have 
-SAM

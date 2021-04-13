@@ -1,7 +1,0 @@
-MultiProgramming-Multiple programs can run like EXCEL and firefox--Uses pipelining procedure--doesn't guarantee that program will run in complete
-time
-MultiTasking-tasks sharing a common resource like 1 CPU. It switches in time slices between tasks i.e. time sharing system
-
-MultiProcessing or multiprocessor uses more than 1 CPU to complete the work and ability to allocate tasks between them
-
-
