@@ -1,0 +1,35 @@
+Servlet is a java controller class used to extend the capabilities of a server. It can respond to an type of requests hosted 
+by web servers
+
+Basic Purpose of constructor-Creation of instance of a class or creation of an object but a method's basic purpose is to
+execute Java code
+
+Diff between document.ready(Jquery) and window.load(JS)--
+
+Document.ready executes as soon as DOM structure is loaded thus it is fast whereas window.load waits for all images and everything to load
+and then it is executed
+
+http://beginnersbook.com/2013/05/jsp-tutorial-life-cycle/
+
+http://www.studytonight.com/jsp/lifecycle-of-jsp.php
+
+request.getParameter-always return string value whereas request.getAttribute returns objects(Strings,Custom objects)
+
+Swapping of two numbers without using temp:
+1. Using addition and substraction a=a+b;b=a-b;a=a-b;
+2. Using XOR operation a=a^b;b=a^b;a=a^b;
+3. using multiplication and division a=a*b;b=a/b;a=a/b;
+
+REST API-
+4 types of paramters in REST:
+Header parameters-- Parameters included in the request header, usually related to authorization(In POSTMAN using content-type)
+Path parameters,-- Parameters within the path of the endpoint before ? (Executing the path or method)
+Query String and -- Parameters after the path of the endpoint after ? 
+Request Body-- Parameters included in request body
+
+SOAP:
+As uses only XML
+@WebServiceClient(name = "ServerInfoService", 
+	targetNamespace = "http://ws.mkyong.com/", 
+	wsdlLocation = "http://localhost:8888/ws/server?wsdl")
+Using web service client you can consume it

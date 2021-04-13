@@ -1,0 +1,10 @@
+Solr v/s elastic search-SOLR runs on JVM, so if the JVM crashes, the entire application will crash but it is mature with full fledged capabilities
+
+SOLR uses XML, CSV,jSON format whereas ES uses only JSON
+
+Solr positions itself as a tool for enterprise search whereas ES seems to have positioned itself for more analytics (ie, ELK). 
+
+Elasticsearch basically beat the Solr committers to the punch in creating a way to easily scale multiple instances or Lucene across a large number of servers.
+
+http://www.quora.com/What-are-the-main-differences-between-ElasticSearch-Apache-Solr-and-SolrCloud
+

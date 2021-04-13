@@ -1,0 +1,13 @@
+Marker Interfaces have no methods declared inside them and classes implemeneting the marker interfaces don't have to override any of the methods
+Eg- Serializable and Cloneable
+These interfaces is used to force some kind of functionality in the classes by providing some functionality to a class if it implements the marker
+interface
+
+Serializable can be used with ObjectOutputStream and ObjectInputStream class
+
+marker interfaces are interfaces with no field or methods/empty interface in java is called a Marker Interface 
+
+If a class is serializable it performs some special operation on it
+
+Also called tagging interface which tags and lets us know that this class is serializable.
+Basically it's a design pattern which is used by many languages to provide run time information about the object

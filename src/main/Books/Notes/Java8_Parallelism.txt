@@ -1,0 +1,37 @@
+Stream operations can also be done on parallel using .parallel()
+Which internally uses Java 7 Fork/Join pool to divide the stream into chunks and each chunk uses a thread to perform
+the operation.
+
+As many number of processors are available, that many amount of chunks will get divided and that many threads will run parallely.
+
+
+Java 8 Reactive Programming-
+
+Normally in Java 8 streams() you can perform multithreaded operation using parallel() but failure recovery like onFail() and
+retry support in streams api is not there.
+Timed operation, batching, zipping, asynchronous terminal operations not possible in streams
+SimpleReact(), ReactiveSeq() and LazyFutureStream() can perform easily
+
+SimpleReact is eager loaded others are lazy loaded
+Simple react is a parallel stream using internally the parallel feature of streams and manages parallel streams as a stream of 
+completablefutures
+
+There are 3 stream types in simple react. 
+LazyFutureStream, SimpleFutureStream, EagerFutureStream
+LFS-Powerful then EFS then SFS.
+Why LFS is more powerful is because nearly all the operators inside LFS is asynchronous.
+
+Simple is SFS. When you want maximum asynchronous, use LFS
+
+FutureStream static factory methods:
+Createing a sequential future stream of:
+LazyFutureStream.of(1,2,3,4,5)
+EagerFutureStream.of(1,2,3,4,5)
+SimpleFutureStream.of(1,2,3,4,5)
+
+Parallel future stream
+LFS.parallelOf(1,2,3,4,5)
+https://github.com/aol/cyclops/wiki/simple-react-streams-overview
+
+
+

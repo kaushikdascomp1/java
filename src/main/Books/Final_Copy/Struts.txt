@@ -1,0 +1,23 @@
+Token Interceptor helps to handle double form submission
+<interceptor name="token" class="org.apache.struts2.interceptor.TokenInterceptor"/>
+
+Spring MVC n Struts 1 are Push MVC type structure where the model(data) is constructed and is given to the view layer by controllers by putting it 
+in scoped variables like request or session i.e. how the view layer is getting the data
+
+While pull MVC puts the model(data) typically constructed by constructors in a common place(stored) in Value Stack and used by view layer
+for rendering. Struts 2 uses Pull MVC
+
+In struts2 FilterServlet is the responsible class for loading struts.xml. In struts1 loa-on-startup tag is required but a filter need not 
+load-on-startup
+
+OGNL-Object Graph Navigation Language
+
+Interceptor interface defines three methods-init(),destroy() and intercept(). Theya re singleton classes and struts2 initialize a new thread
+handle each request.intercept() is the method called evry time client request comes through inerceptor
+
+http://javarevisited.blogspot.co.uk/2011/11/struts-interview-questions-answer-j2ee.html
+
+
+
+
+

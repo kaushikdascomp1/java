@@ -1,0 +1,18 @@
+Get and Load
+Load will return a proxy object from the hibernate cache i.e from session without hitting the database and if no object is
+found in the cache, it will throw ObjectNotFoundException.
+Load provides better performance becuase it supports lazy loading and we should use this method only when we are clear
+that the object exists in the cache else it will throw ObjectNotFoundException
+Session.get always hits the database and return the real object/persisted from the database and if no row is found it will 
+return null.
+
+get():
+1) Returns null if object is not found.
+2) get() method always hit the database.
+3) It returns real object not proxy.
+4) It should be used if you are not sure about the existence of INSTANCE.
+load():
+1) Throws ObjectNotFoundException if object is not found.
+2) load() method doesn't hit the database.
+3) It returns proxy object.
+4) It should be used if you are sure that instance exists.

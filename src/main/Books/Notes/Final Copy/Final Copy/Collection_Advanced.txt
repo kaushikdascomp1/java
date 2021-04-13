@@ -1,0 +1,20 @@
+Synchronization in Hashmap
+Concurrent HashMap and Collections.synchronizedMap(HashMap)
+CHM-synchronizes only particular segments of Map, so other segments where lock is not obtained can be accessed easily whereas synchronizedMap 
+applies lock on the whole collection object so each thread operation will access the object by get/put one at a time
+
+http://howtodoinjava.com/2013/06/14/popular-hashmap-and-concurrenthashmap-interview-questions/
+
+Diff between HashTable and COllections.synchronizedMap- Both are almost equal as both provides complete synchronization and performance is also same
+But HashTable is a legacy class promoted to collections framework and has extra features like enumerators
+
+ThreadSafe:
+Collection.synchronizedList(List)
+Collections.synchronizedMap(Map)
+Collections.synchronizedSet(Set)
+
+[1...10]- remove even integers
+        arrayList.removeIf(e->e%2==0);
+       
+        //[1...10]- increment each number
+        arrayList.replaceAll(e->e+1);

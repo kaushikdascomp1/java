@@ -1,0 +1,15 @@
+AOP-It separates application business logic from system services such as auditing and transaction management.
+
+Application object just perform the business logic and are not responsible for other concerns such as logging, transactional support etc
+Core-Bean Factory heart of any spring based applications 
+BeanFactory is implementation of factory pattern that applies Ioc 
+
+Spring web module extends the application context module which in turn extends the core container module
+
+Stored Procedures Difference
+http://www.dotnet-tricks.com/Tutorial/sqlserver/7EDL150912-Difference-between-Stored-Procedure-and-Function-in-SQL-Server.html
+
+Bean Factory instantiates the bean when we call the getBean method whereas application context instantiates singleton bean when container is started 
+Spring Bean scopes
+http://javarevisited.blogspot.in/2012/05/what-is-bean-scope-in-spring-mvc.html
+http://javarevisited.blogspot.in/2012/03/spring-security-example-tutorial-how-to.html

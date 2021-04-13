@@ -1,0 +1,49 @@
+﻿Reentrant Lock
+If a thread already holds the lock on the same monitor object, it has access to all the blocks synchronized under same monitor object. This is reentrance
+http://tutorials.jenkov.com/java-concurrency/reentrance-lockout.html
+Java synchronized blocks are reentrant. A thread already holding a lock can retake it
+
+Reentrant lock was introduced in java 1.5 and is similar to synchronized keyword
+Diff: 
+Another significant difference between ReentrantLock and synchronized keyword is fairness. synchronized keyword doesn't support fairness. 
+Any thread can acquire lock once released, no preference can be specified, on the other hand you can make ReentrantLock fair by specifying fairness property,
+ while creating instance of ReentrantLock. Fairness property provides lock to longest waiting thread, in case of contention.
+
+tryLock() method. ReentrantLock provides convenient tryLock() method, which acquires lock only if its available or not held by any other thread. 
+This reduce blocking of thread waiting for lock in Java application.
+
+ability to interrupt Thread while waiting for Lock. In case of synchronized keyword, a thread can be blocked waiting for lock, 
+for an indefinite period of time and there was no way to control that. ReentrantLock provides a method called lockInterruptibly(), 
+which can be used to interrupt thread when it is waiting for lock. Similarly tryLock() with timeout can be used to timeout if lock is not available in 
+certain time period.
+API to get list of waiting thread for lock.
+
+Read more: http://javarevisited.blogspot.com/2013/03/reentrantlock-example-in-java-synchronized-difference-vs-lock.html#ixzz4UDik2AEh
+
+Read more: http://javarevisited.blogspot.com/2013/03/reentrantlock-example-in-java-synchronized-difference-vs-lock.html#ixzz4UDiKaIVn
+
+Read more: http://javarevisited.blogspot.com/2013/03/reentrantlock-example-in-java-synchronized-difference-vs-lock.html#ixzz4UDi3ujkb
+
+Read more: http://javarevisited.blogspot.com/2013/03/reentrantlock-example-in-java-synchronized-difference-vs-lock.html#ixzz4UDhw7doK
+Heap and Stack Memory
+Heap memory is used by all the parts of the application whereas stack memory is used only by one thread of execution.
+Primitives are stored in stack whereas objects are stored in heap as heap is globally accessible.
+int j=10--> Stored in stack whereas Integer j= new Integer(10) --> Stored in heap
+Whenever an object is created, it’s always stored in the Heap space and stack memory contains the reference to it. 
+Stack memory only contains local primitive variables and reference variables to objects in heap space.
+Objects and instance variables stored in the heap are globally accessible whereas stack memory can’t be accessed by other threads.
+
+
+http://www.journaldev.com/4098/java-heap-space-vs-stack-memory
+
+Busy Spinning/Busy Waiting is a technique in which a process repeatedly checks to see if a condition is true or not instead of calling wait or sleep method and
+releasing the CPU.
+
+It is mainly useful in multicore processor where condition is going to be true quite quickly i.e. in millisecs or microsecs
+Advantage of not releasing CPU is that, all cached data and instruction are remained unaffected,
+ which may be lost, had this thread is suspended on one core and brought back to another thread
+
+Spin Waiting is that you constantly wait for a condition comes true. The opposite is waiting for a signal (like thread interruption by notify() and wait()).
+
+There are two ways of waiting, first semi-active (sleep / yield) and active (busy waiting).
+

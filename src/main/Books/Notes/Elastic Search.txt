@@ -1,0 +1,13 @@
+Benefits of Elastic Search
+
+Distributed- Scales to thousands of nodes
+High Availability-Multiple copies of data across nodes
+Restful API- CRUD, monitoring and other operations vis simple JSON based HTTP calls
+Powerful DSL query
+schemaless
+
+Every node in our Elasticsearch cluster uses the port 9300 to communicate with other nodes in the cluster. 
+This is what allows for node discovery. Elasticsearch nodes expose another port, port 9200 for external communication. 
+Port 9200 is the HTTP endpoint of the nodes in our cluster, this is where we send our search queries and analytical requests.
+
+By default elastic search has 5 shards and 1 replica

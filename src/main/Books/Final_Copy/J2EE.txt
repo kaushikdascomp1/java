@@ -1,0 +1,44 @@
+Four componenets of J2EE--
+
+Application Client components
+Servlet and JSP are web components
+Business Components(JavaBeans)
+Resource Adapter components
+ 
+JSF-UI designing framework for Java web applications. It provides a set of resuable UI components
+
+Hashtable is a collection synchronized object. It does not allow duplicate values but allows null values
+
+Instance variable initializer is like declaring a string and then defining it
+public class foo{
+
+String s="abc";
+public foo(){
+sysout.println("");
+}
+}
+
+Sub class constructor has to invoke superclass constructor either explicitly by programmer or implicitly by compiler
+
+eg. class super{
+string s;
+public super(){
+sysout.println("super");
+}
+public static sub extends super{
+public sub(){
+sysout.println("sub")
+}
+public static void main(string args[]){
+sub d=new sub();
+}
+
+which prints super and sub
+inside sub() method compiler explicitly calls super() method;
+
+Thus while creating an object of the subclass, invokes also the constructor of the superclass
+
+An objects's life and death depends on the life of the references referring to it. If the reference is alive on the stack, the object is still
+alive on the heap and when the reference is removed, the garbage collector removes the objec from heap
+
+

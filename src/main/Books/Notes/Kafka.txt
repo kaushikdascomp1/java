@@ -1,0 +1,86 @@
+Kafka:
+3 basic types of Kakfa:
+Kafka Streams
+Kafka Connect API
+Kafka Pub-Sub model
+
+Use cases for Kafka:
+Messaging System
+Activity Tracking
+Gather metrics from many different locations
+Application logs gathering
+stream processing in real time(Open a producer console and another console open a consumer console, you can see messages displayed in consumer in RT)
+Perform Big data integrations
+
+Topic can contain multiple partions and each record called offsets will be sequential
+Order is guaranteed within a partition and not across the partitions.
+So the producer needs to implement an algorithm that sends data to a specific partition. 
+Ex.
+To continue the example with the “order” topic: there might be a record with the key neworder42 that contains an event about the order 42 
+that was just created and updated42 which contains an update to the order 42.
+With the default key algorithm, the keys would be hashed. The two records might, therefore, end up in different partitions and no order would be preserved. 
+This is not ideal because the two events obviously need to be processed in the correct order. It makes no sense to process updated42 before neworder42.
+However, it is perfectly fine to process updated42 and updated21 because the orders probably do not depend on each other. The producer would need to 
+implement an algorithm that sends the records with the keys updated42 and neworder42 to the same partition.
+
+Offset only have a meaning in a specific partition. Eg: Offset 3 in partition 0 doesn't represent the same data as offset 3 in partition I
+Immutability- Once the data is written in partition, it cannot be changed
+Data is assigned randomly to any partition if you don't provide a key
+
+Broker
+A kafka cluster is composed of multiple brokers
+Each broker is composed of ID
+Once you connect to any broker you are connected to the cluster
+A broker contain certain topic partitions
+A good number to get started with is 3 but big clusters can have as much as 100 brokers
+
+Producers:
+Producers can choose to receive acknowledgements for all data writes
+acks =0 : Producer won't wait for data acknowledgement(Possible data loss)
+acks = 1: Producer will wait for leader to acknowledge the data(Limited data loss)
+acks = all: Leader + replicas acknowledge
+
+Kakfka:
+Default partitions and replication factors can be changed for a topic in server.properties
+
+Starting Kafka:
+One terminal start zookeeper
+Another terminal start Kafka
+
+Other operations such as producing messages can be done in another terminal
+CLI:
+kafka-topics --zookeeper 127.0.0.1:2181 --topic first_topic --create --partitions 3 --replication_factor 1
+kafka-topics --zookeeper 127.0.0.1:2181 --list		<List all topics>
+kafka-topics --zookeeper 127.0.0.1:2181 --topic first_topic --describe
+
+Producing a message
+kafka-console-producer --broker-list 127.0.0.1:9092 --topic first_topic
+<Write message>
+Ctrl+C
+
+Streaming messages in consumer:
+kafka-console-consumer --bootstrap-server 127.0.0.1:9092 --topic first_topic
+
+To see messages from beginning:
+kafka-console-consumer --bootstrap-server 127.0.0.1:9092 --topic first_topic --from-beginning
+
+Consuming messages in a group:
+As we created the topic with partition 3, at max 3 consumers in a group can read messages
+You just need to add messages in the topic of the producer and as you have 3 instances of consumer running, the messages will get divided and will reach any
+one at a time
+
+CLI:
+kafka-console-consumer --bootstrap-server 127.0.0.1:9092 --topic first_topic --group my_first_application
+<Repeat this in 3 different instances if you want 3 partitions to be working and publishing messages>
+
+List all consumer groups:
+kafka-consumer-groups --bootstrap-server localhost:9092 --list
+
+
+
+
+
+
+
+BANC0719006487
+9203@1406@1988

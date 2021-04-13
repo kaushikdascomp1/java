@@ -1,0 +1,146 @@
+Difference between Anonymous Inner class and Functional Interfaces using Lambdas():
+AIC can be used to create a subclass of an abstract class or a concrete class.
+It can provide a concrete implementation of an interface including the addition of state fields
+An instance of AIC can be referred using this in its method bodies, so further methods can be called upon.
+It's state can be mutated over time
+
+FI can have only a SAM but AIC can have > 1 abstract methods
+Performance
+
+At runtime anonymous inner classes require class loading, memory allocation and object initialization and invocation 
+of a non-static method while lambda expression is pure compile time activity and don’t incur extra cost during runtime. 
+So performance of lambda expression is better as compare to anonymous inner classes.**
+
+Declarative vs Imperative:
+Declarative-> Simply specifies what you want to do
+Imperative -> What and how you want to do
+
+Lamdas are Declarative style- just specify what you want to do
+Imperative- First iterate and get the objects then specify what you want to do
+https://stackoverflow.com/questions/1784664/what-is-the-difference-between-declarative-and-imperative-programming
+
+Cons:
+Compare to External Iteration, Internal Iteration has one major drawback:
+
+In Internal Iteration, as Java API takes care about Iterating elements internally, we do NOT have control over Iteration.
+
+Advantages of Java 8 LocalDateTime API:
+Before Java 8 it had only Date, Calendar and SimpleDateFormat(SDF) where most of the API are deprecated
+Date is mutable and not thread safe
+SDF is also not thread safe
+Less performance
+Less readable
+
+Java 8 LDT is thread safe with increased performance
+and simple
+
+Old Java <8 has 
+It defines months values from 0 to 11, that is January = 0.
+Whereas Java 8 
+It defines months values from 1 to 12, that is January = 1.
+
+https://www.journaldev.com/10081/javase8-interview-questions-part2
+
+Interfaces:
+If two interfaces have the same method name and return type, and the implementing class implements both of them,
+there won't be any compilation error but if two interfaces with same name but different return type then it will have 
+compilation errors
+
+Functional Interfaces:
+Predicate has the 5 following methods:
+
+boolean test(T t);--> SAM
+default Predicate<T> and(Predicate<? super T> other) {
+        Objects.requireNonNull(other);
+        return (t) -> test(t) && other.test(t);
+}
+
+default Predicate<T> negate() {
+        return (t) -> !test(t);
+}
+
+default Predicate<T> or(Predicate<? super T> other) {
+        Objects.requireNonNull(other);
+        return (t) -> test(t) || other.test(t);
+}
+static <T> Predicate<T> not(Predicate<? super T> target) {
+        Objects.requireNonNull(target);
+        return (Predicate<T>)target.negate();
+}
+
+Consumer<T> has two methods
+Consumer is a FI which takes an input argument of type T and returns void
+SAM:
+void accept(T t)
+default Consumer<T> andThen(Consumer<? super T> after)
+When you want an operation to get completed after an operation is complete, this can be used
+If performing either operation throws an exception, it is relayed to the caller of the composed operation
+
+Completable Future
+Before JDK 7 Future was a blocking nature
+Limitations of Future:
+1. It cannot be manually completed- Suppose an API is not returning any response, so when you do future.get(), it will wait
+and code is blocked.
+It won't return the last cached result
+Future provided an isDone() method to check whether task is complete or not and get() method to retrieve whether the result
+when the computation is done
+
+But it was completely blocking
+2. You cannot perform on future's result without blocking
+Future does not notify us upon the completion of the task, it provides a get method which blocks untill the result is available
+
+To overcome this CompletableFuture has complete() method
+Earlier we didn't had a callback mechanism to the future object and get it called upon it's completion
+
+3. For long running computations multiple futures cannot be chained together
+4. Multiple futures cannot be combined together
+5. No exception handling in future
+
+runAsync()- If you want to run any background tasks asynchronously, you can use the runAsync() 
+https://www.callicoder.com/java-8-completablefuture-tutorial/
+
+Numeric streams:
+int calories = menu.stream().map(Dish::getCalories).reduce(0,Integer::sum)
+
+For the above example, we are trying to get the sum of all calories. The problem with the above code is insidious boxing cost
+Each integer needs to be unboxed to a primitive before performing the summation
+The below method is a better way to provide the summation
+int calories = menu.stream().map(Dish::getCalories).sum()
+
+But the above method is not possible as the method map generates a Stream<T> 
+
+This can be done using intstream or you can use the mapToInt method
+int calories = menu.stream().mapToInt(Dish::getCalories).sum() // This will work perfectly as mapToInt converts to a IntStream
+instead of Stream<T> as in case of simple .map method
+
+Converting it back from IntStream to Stream<Integer>:
+IntStream stream1 = menu.stream().mapToInt(Dish::getCalories)
+Stream<Integer> streamINT = stream1.boxed();
+
+In cases using Optional<Integer> which is a wrapper class OptionalInt, OptionalDouble and OptionalLong can be used
+OptionalInt intValue = menu.stream().mapToInt(Dish::getcalories).max();
+
+Same if you want it to be Optional<Integer> use map
+Optional<Integer> intCal = menu.stream().map(Dish::getCalories).max();
+
+Numeric Ranges:
+When working with ranges of numeric values, IntStream and LongStream can be used
+Two Types of range values
+Range - Both ends are mutually exclusive
+rangeClosed - Both ends are mutually inclusive
+
+IntStream evenNo = IntStream.rangeClosed(1,100).filter(n->n%2==0);
+sout(evenNo.count()) --  This will give 50 numbers
+whereas if we have used range it would give only 49 numbers
+
+Any kind of arithmetic operation can be done using reduce operation.
+Reduce is a terminal operation can be used just after stream.
+
+int sum = numbers.stream().reduce(0,(a,b)->a+b);
+
+There are some other pre-defined operations such as min max which can be used in place of reduce operations.
+
+
+
+ 
+

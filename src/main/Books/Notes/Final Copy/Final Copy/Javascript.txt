@@ -1,0 +1,20 @@
+Types used in Javascript:
+String, Number, Boolean, Function, Object, Null, undefined
+Undefined-means a variable that has been declared has not been assigned any value
+Null-representation of no value
+undefined is a type itself(undefined) whereas null is an object
+Unassigned variables are initialized by Javascript with a default value undefined while null is an object
+
+== checks for value
+=== checks for value and type also
+
+Local variables are declared with "var" while global variables are declared without "var"
+
+Event Bubbling- describes the behaviour of events in child and parent nodes in the DOM i.e. all child node events are
+automatically passed to parent nodes. The benefit of the method is speed as the DOM tree will traverse only once
+
+Javascript framework persistence-popular frameworks are Jquery,postal
+
+Errors are handled in Javascript using try/catch block
+
+finally block in try catch- It is a optional block but will execute for sure whether try/catch fails
