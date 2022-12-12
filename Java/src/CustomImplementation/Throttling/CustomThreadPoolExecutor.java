@@ -1,4 +1,4 @@
-package Java.src.CustomImplementation.Throttling;
+package CustomImplementation.Throttling;
 
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;

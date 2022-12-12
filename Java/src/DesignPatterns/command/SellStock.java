@@ -1,4 +1,4 @@
-package Java.src.DesignPatterns.command;
+package DesignPatterns.command;
 
 /*
     THis is the concrete command class

@@ -1,4 +1,4 @@
-package Java.src.DesignPatterns.state;
+package DesignPatterns.state;
 
 public class VibrationState implements MobileAlertState {
 

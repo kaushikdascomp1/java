@@ -1,4 +1,4 @@
-package Java.src.CustomImplementation.Throttling;
+package CustomImplementation.Throttling;
 
 public class DemoTask implements Runnable {
     String name;

@@ -1,6 +1,6 @@
-package src.com.interview.Numbers;
+package com.interview.Numbers;
 
-import scala.Int;
+
 
 import java.util.HashSet;
 import java.util.Iterator;

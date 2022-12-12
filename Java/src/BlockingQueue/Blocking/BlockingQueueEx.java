@@ -1,4 +1,4 @@
-package Java.src.BlockingQueue.Blocking;
+package BlockingQueue.Blocking;
 
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;

@@ -1,4 +1,4 @@
-package Java.src.DesignPatterns.Factory;
+package DesignPatterns.Factory;
 
 public class FactoryMain {
 

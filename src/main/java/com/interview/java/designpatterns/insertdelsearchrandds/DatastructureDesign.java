@@ -36,9 +36,9 @@ public class DatastructureDesign {
 
         int index = map.get(num);
         int size = arr.size();
-        Integer num1 = arr.get(size-1);
         Collections.swap(arr,index,size-1);
 
+        Integer num1 = arr.get(size-1);
         arr.remove(size-1);
         map.put(num1,index);
     }

@@ -1,7 +1,8 @@
-package Java.src.Java8.stream;
+package Java8.stream;
 
 import java.util.*;
 import java.util.function.Function;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -27,6 +28,9 @@ public class StreamExample {
         Map<String,Long> collect = arrList.stream().collect(groupingBy(Function.identity(),counting()));
         System.out.println(collect);
 
+        //filter out even numbers
+        list.stream().filter(x -> x%2 == 0).collect(toMap(Function.identity(), x->String.valueOf(x)));
+
 
         //If we want it in Integer form
         Map<String,Integer> collectIntegers = arrList.stream().collect(groupingBy(Function.identity(),summingInt(e->2)));
@@ -41,7 +45,8 @@ public class StreamExample {
         String minString = Arrays.stream(array).min(String::compareTo).get();
         System.out.println(minString);
 
-        //min Length for String
+
+     //min Length for String
         // To find the minimum string length values
         Optional<String> minStringLength = Arrays.stream(array).min((str1, str2)->Character.compare(str1.charAt(str1.length()-1),
                 str2.charAt(str2.length()-1)));

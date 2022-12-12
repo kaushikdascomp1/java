@@ -1,4 +1,4 @@
-package Java.src.DesignPatterns.command;
+package DesignPatterns.command;
 
 /*
 Command interface class

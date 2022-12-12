@@ -49,7 +49,7 @@ public class IsBST {
     public static boolean checkBSTMinMaxUtil(Node root, int min, int max){
         if(null == root)
             return false;
-        // Maximum value in the left sub tree is smaller and smallest vale in the right sub tree is greater
+        // Maximum value in the left sub tree is smaller and smallest vale in the right sub tree is greater than root
         if( root.value > max || root.value < min)
             return false;
         //check left and right sub tree

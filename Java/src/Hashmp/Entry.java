@@ -1,4 +1,4 @@
-package Java.src.Hashmp;
+package Hashmp;
 
 
 public class Entry<K,V> {

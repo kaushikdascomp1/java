@@ -1,4 +1,4 @@
-package src.com.interview.arrays.overlappingsubproblems;
+package com.interview.arrays.overlappingsubproblems;
 
 import java.math.BigInteger;
 import java.util.Arrays;

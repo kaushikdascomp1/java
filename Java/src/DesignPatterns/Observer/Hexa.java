@@ -1,4 +1,4 @@
-package Java.src.DesignPatterns.Observer;
+package DesignPatterns.Observer;
 
 public class Hexa extends IObserver {
 

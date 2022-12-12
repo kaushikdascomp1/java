@@ -1,4 +1,4 @@
-package Java.src.DesignPatterns.strategy;
+package DesignPatterns.strategy;
 
 public class Addition implements Strategy {
 

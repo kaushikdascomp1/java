@@ -34,6 +34,7 @@ public class GenericStack<T> {
             return item;
         else {
             item = array[top--];
+            //t any point in time if you want to know the current size of the stack
             currSize--;
             return item;
         }

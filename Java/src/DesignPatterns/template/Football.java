@@ -1,4 +1,4 @@
-package Java.src.DesignPatterns.template;
+package DesignPatterns.template;
 
 public class Football extends Game {
 

@@ -1,4 +1,4 @@
-package Java.src.CustomImplementation.multithreading.oddeven;
+package CustomImplementation.multithreading.oddeven;
 
 public class Producer {
 

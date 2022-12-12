@@ -1,4 +1,4 @@
-package Java.src.DesignPatterns.ChainOfResponsiblity;
+package DesignPatterns.ChainOfResponsiblity;
 
 public class TenDollarDispenser implements DispenseChain {
 

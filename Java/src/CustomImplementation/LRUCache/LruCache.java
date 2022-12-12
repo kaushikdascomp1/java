@@ -2,6 +2,7 @@ package Java.src.CustomImplementation.LRUCache;
 
 import java.util.Deque;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.LinkedList;
 
 public class LruCache {
@@ -30,5 +31,19 @@ public class LruCache {
         deque.add(page);
         hashSet.add(page);
     }
+
+    public void display(){
+        var value = deque.peek();
+        //returning  all values
+        Iterator<Integer> itr = deque.iterator();
+        while (itr.hasNext()){
+            System.out.println(itr.next());
+        }
+    }
+
+    /*
+    Another implementation using LinkedHashSet
+
+     */
 
 }

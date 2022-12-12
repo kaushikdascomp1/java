@@ -1,4 +1,4 @@
-package src.com.interview.linkedlist;
+package linkedlist;
 
 public class MiddleElement {
 

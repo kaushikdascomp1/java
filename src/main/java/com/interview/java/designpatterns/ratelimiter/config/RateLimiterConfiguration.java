@@ -104,6 +104,4 @@ public class RateLimiterConfiguration extends HandlerInterceptorAdapter {
         // loop and finalize all limiters
         log.info("Request completed:: ");
     }
-
-
 }

@@ -1,4 +1,4 @@
-package Java.src.Hashmp;
+package Hashmp;
 
 public class CustomHashMap<K,V> {
     public static final int initialCap = 16;

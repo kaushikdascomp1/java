@@ -1,4 +1,4 @@
-package Java.src.BlockingQueue;
+package BlockingQueue;
 import java.util.stream.IntStream;
 
 public class BlockingQueueExample {

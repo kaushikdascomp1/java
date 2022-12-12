@@ -1,6 +1,5 @@
-package Java.src.DesignPatterns.Builder;
+package DesignPatterns.Builder;
 
-import jdk.internal.joptsimple.internal.Strings;
 
 public class User {
 
@@ -41,7 +40,7 @@ public class User {
         }
 
         public User build(){
-            if (Strings.isNullOrEmpty(firstName) || Strings.isNullOrEmpty(lastName))
+            if (null == firstName || null == (lastName))
                 throw new IllegalArgumentException("First name and last name cannot be empty:: ");
 
             return new User(this);

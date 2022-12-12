@@ -1,4 +1,4 @@
-package src.GSCoderPad;
+package GSCoderPad;
 
 import java.util.ArrayList;
 import java.util.Arrays;

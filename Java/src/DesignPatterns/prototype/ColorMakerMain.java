@@ -1,4 +1,4 @@
-package Java.src.DesignPatterns.prototype;
+package DesignPatterns.prototype;
 
 public class ColorMakerMain {
 

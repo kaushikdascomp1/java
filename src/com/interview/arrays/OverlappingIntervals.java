@@ -1,8 +1,6 @@
-package src.com.interview.arrays;
+package com.interview.arrays;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class OverlappingIntervals {
 
@@ -38,6 +36,35 @@ public class OverlappingIntervals {
             }
             System.out.println();
         }
+    }
+
+    public List<Interval> overlapping(List<Interval> intervals){
+        if(intervals.size() < 2){
+            return intervals;
+        }
+
+        Collections.sort(intervals, (a, b) -> Integer.compare(a.start, b.start));
+        List<Interval> mergedIntervals = new LinkedList<Interval>();
+        Iterator<Interval> itr = intervals.iterator();
+        Interval interval = itr.next();
+        int start = interval.start;
+        int end = interval.end;
+
+        while(itr.hasNext()){
+            interval = itr.next();
+            if(interval.start <= end){
+                //when there is overlapping interval
+                end = Math.max(end, interval.end);
+            }else{
+                //add interval to list for non-verlapping
+                mergedIntervals.add(new Interval(start, end));
+                start = interval.start;
+                end = interval.end;
+            }
+        }
+        //adding last interval
+        mergedIntervals.add(new Interval(start, end));
+        return mergedIntervals;
     }
 
     public static int[][] mergeIntervals(int[][] intervals){

@@ -1,4 +1,4 @@
-package Java.src.CustomImplementation.tokenbucket;
+package CustomImplementation.tokenbucket;
 
 public class TokenBucketFilter {
 

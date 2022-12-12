@@ -1,4 +1,4 @@
-package Java.src.CustomImplementation.tokenbucket;
+package CustomImplementation.tokenbucket;
 
 import java.util.HashSet;
 import java.util.Set;

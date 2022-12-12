@@ -14,6 +14,7 @@ public class MaximumSumRectangle {
         int m = mat.length;
         int n = mat[0].length;
 
+        //creating a temporary array first
         int[][] preSum = new int[m][n];
         int max = 0;
          for(int is=0;is<m;is++){

@@ -1,4 +1,4 @@
-package Java.src.Java8.defaultstatic;
+package Java8.defaultstatic;
 
 public class Calculator implements CustomCalculator {
 }

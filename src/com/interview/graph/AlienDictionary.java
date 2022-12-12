@@ -1,6 +1,6 @@
-package src.com.interview.graph;
+package com.interview.graph;
 
-import scala.Char;
+
 
 import java.util.*;
 

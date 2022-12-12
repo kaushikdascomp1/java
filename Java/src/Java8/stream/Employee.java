@@ -1,4 +1,4 @@
-package Java.src.Java8.stream;
+package Java8.stream;
 
 public class Employee {
 

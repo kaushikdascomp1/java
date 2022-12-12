@@ -1,4 +1,4 @@
-package src.com.interview.arrays;
+package arrays;
 
 public class CandyProblem {
 
@@ -35,17 +35,18 @@ public class CandyProblem {
                 candies[i] = 1;
         }
 
-        int result = candies[ratings.length-1];
         for (int j = ratings.length - 2; j >= 0; j--) {
-            int cur = 1;
             if (ratings[j] > ratings[j + 1]) {
-                cur = candies[j + 1] + 1;
+                candies[j] = Math.max(candies[j], candies[j+1]+1);
             }
-            result += Math.max(cur, candies[j]);
-            candies[j] = cur;
         }
 
-        return result;
+        int totalCandies = 0;
+        for(int candie: candies){
+            totalCandies +=candie;
+        }
+
+        return totalCandies;
 
 
     }

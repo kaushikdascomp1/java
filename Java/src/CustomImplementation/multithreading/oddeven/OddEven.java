@@ -1,26 +1,26 @@
-package Java.src.CustomImplementation.multithreading.oddeven;
+package CustomImplementation.multithreading.oddeven;
 
-public class OddEven implements Runnable{
+public class OddEven implements Runnable {
     private Printer printer;
     private int max;
     private boolean isEvenNumber;
 
-public OddEven(Printer printer, int max, boolean isEvenNumber){
-    this.printer=printer;
-    this.max=max;
-    this.isEvenNumber=isEvenNumber;
-}
+    public OddEven(Printer printer, int max, boolean isEvenNumber) {
+        this.printer = printer;
+        this.max = max;
+        this.isEvenNumber = isEvenNumber;
+    }
 
     @Override
     public void run() {
-        int number = isEvenNumber ? 2 :1;
-        while(number <= max){
-            if(isEvenNumber){
+        int number = isEvenNumber ? 2 : 1;
+        while (number <= max) {
+            if (isEvenNumber) {
                 printer.printEven(number);
-            }else{
+            } else {
                 printer.printOdd(number);
             }
-            number +=2;
+            number += 2;
         }
     }
 }

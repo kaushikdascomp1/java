@@ -1,6 +1,7 @@
-package src.com.interview.arrays;
+package arrays;
 
 import java.util.Arrays;
+import java.util.Stack;
 
 public class NextGreaterElement {
 
@@ -34,6 +35,34 @@ public class NextGreaterElement {
         Arrays.sort(input,i,n);
         for (int j = 0; j < n; j++) {
             System.out.println(input[j]);
+        }
+    }
+    Stack<Integer> s1 = new Stack<>();
+    //[4,5,2,25]
+    public void ngeStack(int[] nums){
+        int[] diff = new int[nums.length];
+        if(nums.length == 0){
+            return;
+        }
+
+        int element,next;
+
+        s1.push(nums[0]);
+        for(int i=1;i<nums.length;i++){
+            next = nums[i];
+            if(!s1.isEmpty()){
+                element = s1.pop();
+                while (element<next){
+                    diff[i] =  next - element;
+                    if(s1.isEmpty()){
+                        break;
+                    }
+                    element = s1.pop();
+                }
+                if(element > next){
+                    s1.push(element);
+                }
+            }
         }
     }
 

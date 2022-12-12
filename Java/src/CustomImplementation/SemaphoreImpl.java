@@ -1,4 +1,4 @@
-package Java.src.CustomImplementation;
+package CustomImplementation;
 
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.locks.ReentrantLock;

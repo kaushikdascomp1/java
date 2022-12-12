@@ -1,4 +1,4 @@
-package Java.src.DesignPatterns.adapter;
+package DesignPatterns.adapter;
 
 public class AudioPlayer implements MediaPlayer {
 

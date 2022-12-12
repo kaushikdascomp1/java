@@ -1,4 +1,4 @@
-package Java.src.CustomImplementation.Throttling;
+package CustomImplementation.Throttling;
 
 import java.util.concurrent.*;
 
@@ -35,6 +35,7 @@ public class DemoExecutor {
             if (threadCounter == 200)
                 break;
         }
+        executor.shutdown();
 
     }
 }

@@ -1,4 +1,4 @@
-package src.com.interview.graph;
+package graph;
 
 public class SimpleAdirectedGraph {
 

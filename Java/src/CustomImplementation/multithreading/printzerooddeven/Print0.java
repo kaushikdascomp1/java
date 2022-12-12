@@ -1,4 +1,4 @@
-package Java.src.CustomImplementation.multithreading.printzerooddeven;
+package CustomImplementation.multithreading.printzerooddeven;
 
 public class Print0 implements Runnable{
 

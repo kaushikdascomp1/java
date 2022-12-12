@@ -1,4 +1,4 @@
-package Java.src.Java8.defaultstatic;
+package Java8.defaultstatic;
 
 import java.util.function.IntPredicate;
 import java.util.stream.IntStream;

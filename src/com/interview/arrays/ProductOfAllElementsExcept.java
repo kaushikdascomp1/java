@@ -1,4 +1,4 @@
-package src.com.interview.arrays;
+package arrays;
 
 import java.util.Arrays;
 

@@ -1,4 +1,4 @@
-package Java.src.Java8.Predicate;
+package Java8.Predicate;
 
 import Java.src.Java8.Models.Apple;
 
