@@ -23,7 +23,7 @@ public class CoinChange1 {
     }
 
     public static int howmanywayscoinchange(int targetSum, int denom[], int currentIndex){
-            //base case
+        //base case When the target sum is 0, we need to return 1, which will increment the counter
         if(targetSum == 0)
             return 1;
         if(denom.length == 0 || currentIndex >= denom.length)

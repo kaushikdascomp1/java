@@ -6,6 +6,11 @@ import java.util.Stack;
 
 public class MaxFreqStack {
 
+    /*
+    In a stream of elemensts coming into a system, when you need to find the count of each elements is fine where
+    you need only a map but for keeping a track of maxFrequency stack where with 1 freq we can have the elements with entire stack
+     */
+
     Map<Integer, Integer> freqMap;
     Map<Integer, Stack<Integer>> stackMap;
     int maxFreq;

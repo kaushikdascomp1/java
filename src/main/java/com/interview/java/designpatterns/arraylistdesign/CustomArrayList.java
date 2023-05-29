@@ -1,5 +1,7 @@
 package com.interview.java.designpatterns.arraylistdesign;
 
+import Java8.stream.Employee;
+
 import java.util.Arrays;
 import java.util.List;
 

@@ -30,4 +30,23 @@ public class MinCoinsRequired {
             return min;
 
     }
+
+    public static int findMinimumRecur(int[] num, int sum, int currentIndex){
+        //base conditions
+        if(null == num || num.length == 0){
+            return -1;
+        }
+
+        if(sum == 0){
+            return 1;
+        }
+        //either you exclude it or include it
+        int count1 = 0;
+        if(num[currentIndex] <= sum){
+            count1 = findMinimumRecur(num, sum-num[currentIndex], currentIndex+1);
+        }
+        int count2 = findMinimumRecur(num, sum, currentIndex+1);
+        return Math.min(count1, count2);
+
+    }
 }

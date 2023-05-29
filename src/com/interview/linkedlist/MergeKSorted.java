@@ -24,7 +24,9 @@ public class MergeKSorted {
         ListNode current = dummy;
         PriorityQueue<ListNode> minHeap = new PriorityQueue<>((e1, e2) -> e1.val - e2.val);
         for(int i=0;i<lists.length;i++){
-            minHeap.add(lists[i]);
+            if(lists[i] != null){
+                minHeap.add(lists[i]);
+            }
         }
 
         while (!minHeap.isEmpty()){

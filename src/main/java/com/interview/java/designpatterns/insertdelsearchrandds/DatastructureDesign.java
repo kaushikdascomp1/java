@@ -58,4 +58,17 @@ public class DatastructureDesign {
         return arr.get(index);
     }
 
+    public void remove(int num){
+        if(map.get(num) == null){
+            return;
+        }
+
+        int index = map.get(num);
+        int size = arr.size();
+        Integer num1 = arr.get(size-1);
+        Collections.swap(arr, index, size-1);
+        arr.remove(size-1);
+        map.put()
+    }
+
 }

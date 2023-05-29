@@ -1,4 +1,4 @@
-package linkedlist;
+package com.interview.linkedlist;
 
 public class LinkedList {
 

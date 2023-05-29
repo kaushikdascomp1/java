@@ -1,4 +1,4 @@
-package arrays;
+package com.interview.arrays;
 
 import java.util.List;
 import java.util.PriorityQueue;

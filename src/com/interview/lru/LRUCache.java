@@ -1,4 +1,4 @@
-package src.com.interview.lru;
+package com.interview.lru;
 
 import java.util.HashMap;
 

@@ -16,7 +16,7 @@ public class CustomHashMap<K,V> {
     public Object get(int key){
         int hashBucket = getHashCode(key);
         Entry bucketIndex = buckets[hashBucket];
-        if(null!=bucketIndex && bucketIndex.key.equals(key)){
+        if(null!=bucketIndex && !bucketIndex.key.equals(key)){
             bucketIndex=bucketIndex.next;
         }
         return (bucketIndex!=null ? bucketIndex.value: null);

@@ -1,4 +1,4 @@
-package dp;
+package com.interview.dp;
 
 public class MinStepsWithFee {
 
@@ -13,10 +13,11 @@ public class MinStepsWithFee {
     The total fee we have to pay will be (1+2).
      */
     public static void main(String[] args) {
-
+        int[] fee = {1,2,5,2,1,2};
+        System.out.println(minFee(fee, 0));
     }
 
-    public int minFee(int[] fee, int currentIndex){
+    public static int minFee(int[] fee, int currentIndex){
         if(fee.length == 0 || currentIndex>=fee.length)
             return 0;
         int step1 = minFee(fee, currentIndex+1);

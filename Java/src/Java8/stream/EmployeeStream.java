@@ -46,6 +46,7 @@ public class EmployeeStream {
         employeeMap.put("A",emp6);
         employeeMap.put("G",emp7);
 
+        employeeMap.entrySet().stream().sorted(Map.Entry.comparingByValue(Comparator.comparing(Employee::getSal).reversed().thenComparing(Employee::getDepartment))).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2)-> e1, LinkedHashMap:: new));
         LinkedHashMap<String, Employee> sortedByValue = employeeMap.entrySet().stream().sorted(Map.Entry.comparingByValue(Comparator.comparing(Employee::getSal).reversed().thenComparing(Employee::getDepartment))).collect(toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
         sortedByValue.entrySet().stream().forEach(System.out::println);
         Comparator<Employee> sortingBySal = (e1,e2)->e2.getSal()-e1.getSal();

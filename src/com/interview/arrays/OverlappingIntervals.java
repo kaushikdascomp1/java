@@ -38,6 +38,14 @@ public class OverlappingIntervals {
         }
     }
 
+    public List<Interval> convertToInterval(int[][] intervals){
+        List<Interval> inputIntervalList = new ArrayList<>();
+        for(int[] inter: intervals){
+                inputIntervalList.add(new Interval(inter[0], inter[1]));
+        }
+        return inputIntervalList;
+    }
+
     public List<Interval> overlapping(List<Interval> intervals){
         if(intervals.size() < 2){
             return intervals;
@@ -88,9 +96,9 @@ public class OverlappingIntervals {
     }
 
    //Insert an INterval and merge as well
-    public class Interval{
-        int start;
-        int end;
+    public static class Interval{
+        public int start;
+        public int end;
 
         public Interval(){
             this.start = 0;

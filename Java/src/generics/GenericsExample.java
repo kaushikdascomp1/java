@@ -33,15 +33,15 @@ public class GenericsExample {
         return s;
     }
         //covariance is producer
-    void testCoVariance(List<? extends Shape> list){
+    void testCoVariance(List<? extends Java.src.generics.Shape> list){
        // list.add(new Circle()); --throwing error, just uncomment it
         //list.add(new Square());
         list.get(0);
     }
 
-    void testContraVariance(List<? super Shape> list){
-        list.add(new Circle());
-        list.add(new Square());
+    void testContraVariance(List<? super Java.src.generics.Shape> list){
+        list.add(new Java.src.generics.Circle());
+        list.add(new Java.src.generics.Square());
       // Shape shape = list.get(0);  //getting error because of type mismatch
         Object object = list.get(0);
     }
